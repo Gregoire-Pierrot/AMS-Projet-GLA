@@ -24,6 +24,17 @@ Kubernetes sera utilisée pour déployer l'application de manière efficace et s
 
 ---
 
+## Status
+
+### Console-App
+- [Insérer badges GitHub Actions]
+- [Insérer badges SonarQube]
+
+### Web-App
+- [Insérer badges]
+
+---
+
 ## Utilisation
 
 ### Console-App
@@ -34,6 +45,7 @@ L'application s'occupant de collecter des données est faites en Java. Vous avez
 ```java
 java console-app/src/main/java/main.java
 ```
+
 - Executer le fichier **main.class** localiser dans **[indiquer le chemin d'acces main.class]** avec la commande :
 
 ```java
