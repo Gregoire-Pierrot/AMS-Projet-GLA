@@ -1,5 +1,7 @@
 # Projet : Application de Surveillance des marchés de Cryptomonnaies
 
+## Description
+
 ---
 
 **Le projet** consiste à développer une application qui collecte périodiquement des données sur les marchés des cryptomonnaies à partir d'APIs publiques (CoinCap ou autre). Il y a aura deux applications distinctes à développer.
