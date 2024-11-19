@@ -1,4 +1,4 @@
-v# Cahier des Charges - Projet de Collecte et d'Analyse de Données Cryptomonnaies
+# Cahier des Charges - Projet de Collecte et d'Analyse de Données Cryptomonnaies
 
 ---
 
