@@ -13,6 +13,7 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
 ## Projet
 
 - ✅ **Création du git [18/11/24 - 18/11/24] :**
+
     | Tâches                                                        | Date de création  | Date d'implémentation | Description   | Réalisée  | 
     |:-------------------------------------------------------------:|:-----------------:|:---------------------:|:-------------:|:---------:|
     | Création des dossiers                                         | 18 novembre 2024  | 18 novembre 2024      | ------------- |    ✅     |
@@ -25,7 +26,8 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
 
 ## Console-App
 
-- ❌ **Tests [18/11/24 - 18/11/24]:**
+- ❌ **Tests [18/11/24 - --/--/--]:**
+    
     | Tâches                                                                                                				| Date de création  | Date d'implémentation | Description            				    		| Réalisée  | 
     |:---------------------------------------------------------------------------------------------------------------------------------:|:-----------------:|:---------------------:|:-----------------------------------------------------------------:|:---------:|
     | Création du [pom.xml](console-app/pom.xml)                                                            				| 18 novembre 2024  | --------------------- | Maven 17, JUnit 5.11.3, Mockito 5.14.2, Jacoco 0.8.12 		|    ❌     |
