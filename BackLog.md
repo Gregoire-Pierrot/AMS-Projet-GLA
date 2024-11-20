@@ -46,46 +46,69 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
     | Rédiger les choix d'API et de librairie dans la [documentation](Documentation.md) | 20 novembre 2024  | --------------------- | Justification des choix fait              |    ❌     |
 
 
-- 🕐 **Choix de l'architecture de classes [20/11/24 - --/--/--]:**
+- ❌ **Architecture et implémentation du code [20/11/24 - --/--/--]:**
 
-    | Tâches                                                                            | Date de création  | Date d'implémentation | Description                                               | Réalisée  | 
-    |:---------------------------------------------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------------------:|:---------:|
-    | Définir les différentes partie du programme Java                                  | 20 novembre 2024  | --------------------- | Liste des différentes parties du programme                |    ❌     |
-    | Réaliser le diagramme de classe                                                   | 20 novembre 2024  | --------------------- | Schéma représantant le fonctionnement de l'application    |    ❌     |
-    | Rédiger la documentation du programme dans la [documentation](Documentation.md)   | 20 novembre 2024  | --------------------- | Documentation du programme                                |    ❌     |
-
-
-- ❌ **Réalisation du code [20/11/24 - --/--/--]:**
-
-    | Tâches                                            | Date de création  | Date d'implémentation | Description                                                                                       | Réalisée  | 
-    |:-------------------------------------------------:|:-----------------:|:---------------------:|:-------------------------------------------------------------------------------------------------:|:---------:|
-    | Différentiation des fonctionnalités à implémenter | 20 novembre 2024  | --------------------- | Répartition en groupes des différentes parties du code                                            |    ✅     |
-    | Création d'un schéma                              | 20 novembre 2024  | --------------------- | Représentation du fonctionnement du code à implémenter dans la [documentaion](Documentation.md)   |    ❌     |
-    | Réalisation des classes                           | 20 novembre 2024  | --------------------- | Implémentation du code de l'application [Cosole-App](Documentation.md/#console-app)               |    ❌     |
+    | Tâches                                                                            | Date de création  | Date d'implémentation | Description                                                                                       | Réalisée  | 
+    |:---------------------------------------------------------------------------------:|:-----------------:|:---------------------:|:-------------------------------------------------------------------------------------------------:|:---------:|
+    | Différentiation des fonctionnalitées à implémenter                                | 20 novembre 2024  | 20 novembre 2024      | Répartition en groupes des différentes parties du code                                            |    ✅     |
+    | Création d'un schéma                                                              | 20 novembre 2024  | --------------------- | Réalisation du diagramme de classes à implémenter dans la [documentaion](Documentation.md)        |    ❌     |
+    | Réalisation des classes                                                           | 20 novembre 2024  | --------------------- | Implémentation du code de l'application [Cosole-App](Documentation.md/#console-app)               |    ❌     |
+    | Rédiger la documentation du programme dans la [documentation](Documentation.md)   | 20 novembre 2024  | --------------------- | Documentation du programme                                                                        |    ❌     |
 
     - ❌ **Classes de cryptomonnaies [20/11/24 - --/--/--]:**
 
+        | Tâches                                                                                                | Date de création  | Date d'implémentation | Description                                   | Réalisée  |
+        |:-----------------------------------------------------------------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------:|:---------:|
+        | Réalisation de l'interface [ICryptocurrency](console-app/src/main/java/ICryptocurrency.java)          | 20 novembre 2024  | --------------------- | Interface d'une cryptomonnaie                 |    ❌     |
+        | Réalisation de la classe abstraite [Cryptocurrency](console-app/src/main/java/Cryptocurrency.java)    | 20 novembre 2024  | --------------------- | Classe abstraite d'une cryptomonnaie          |    ❌     |
+        | Réalisation des classes de cryptomonnaie                                                              | 20 novembre 2024  | --------------------- | Classes des cryptomonnaie récupérer via l'API |    ❌     | 
+
+
     - ❌ **Classe de requettes à l'API [20/11/24 - --/--/--]:**
+
+        | Tâches                                        | Date de création  | Date d'implémentation | Description                                          | Réalisée  |
+        |:---------------------------------------------:|:-----------------:|:---------------------:|:----------------------------------------------------:|:---------:|
+        | Réalisation de la classe de requettes à l'API  | 20 novembre 2024  | -------------------- | Classe permettant les différentes requettes à l'API  |    ❌     |
+
 
     - ❌ **Classe de gestion du format JSON [20/11/24 - --/--/--]:**
 
+        | Tâches                                                | Date de création  | Date d'implémentation | Description                                   | Réalisée  |
+        |:-----------------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------:|:---------:|
+        | Réalisation de la classe de traitement des données    | 20 novembre 2024  | --------------------- | Classe traitant les données reçus via l'API   |    ❌     |
+
+
     - ❌ **Classes de création et d'enregistrement dans la base de données [20/11/24 - --/--/--]:**
+
+        | Tâches                                                        | Date de création  | Date d'implémentation | Description                                                   | Réalisée  |
+        |:-------------------------------------------------------------:|:-----------------:|:---------------------:|:-------------------------------------------------------------:|:---------:|
+        | Réalisation de la classe de création de la base de données    | 20 novembre 2024  | --------------------- | Classe créant la base de données                              |    ❌     |
+        | Réalisation de la classe d'enregistrement des données         | 20 novembre 2024  | --------------------- | Classe enregistrant les données reçu dans la base de donnée   |    ❌     |
+
 
     - ❌ **Classe appelant de manière périodique l'API [20/11/24 - --/--/--]:**
 
+        | Tâches                                    | Date de création  | Date d'implémentation | Description                                   | Réalisée  |
+        |:-----------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------:|:---------:|
+        | Réalisation de la classe appelant l'API   | 20 novembre 2024  | --------------------- | Classe appelant l'API de manière périodique   |    ❌     |
 
 
 - ❌ **Tests [18/11/24 - --/--/--]:**
     
     | Tâches                                                                                                				            | Date de création  | Date d'implémentation | Description            				    		                    | Réalisée  | 
     |:---------------------------------------------------------------------------------------------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------------------------------:|:---------:|
-    | Créations des tests unitaires avec [JUnit](https://junit.org/junit5/docs/current/api/) et [Mockito](https://site.mockito.org)	    | 18 novembre 2024  | --------------------- | Faire tout les tests unitaires avec JUnit et Mockito		            |    ❌ ----    |
-    | Automatisation des tests avec [GitHub Actions](https://github.com/Gregoire-Pierrot/AMS-Projet-GLA/actions/) 			            | 18 novembre 2024  | --------------------- | Mise en place des tests unitaires automatique avec GitHub Actions     |    ❌ ----    |
+    | Créations des tests unitaires avec [JUnit](https://junit.org/junit5/docs/current/api/) et [Mockito](https://site.mockito.org)	    | 18 novembre 2024  | --------------------- | Faire tout les tests unitaires avec JUnit et Mockito		            |    ❌     |
+    | Automatisation des tests avec [GitHub Actions](https://github.com/Gregoire-Pierrot/AMS-Projet-GLA/actions/) 			            | 18 novembre 2024  | --------------------- | Mise en place des tests unitaires automatique avec GitHub Actions     |    ❌     |
     | Gestion de qualité de code avec [SonarQube](https://sonarcloud.io)								                                | 18 novembre 2024  | --------------------- | Utilisation de l'outil de gestion et de qualité de code SunarQube     |    ❌     |
     | Ajouter les badges GitHub Actions et SonarQube au [README](README.md)								                                | 18 novembre 2024  | --------------------- | Bagdes indiquant la réussite des testes ainsi que le couvrage du code |    ❌     |
 
 
-- ❌ **Ajout d'une page de documentation Java [20/11/24 - --/--/--]:**
+- ❌ **Ajout d'une page de documentation Java avec javadoc de Maven [20/11/24 - --/--/--]:**
+
+    | Tâches                                        | Date de création  | Date d'implémentation | Description                                                                                       | Réalisée  |
+    |:---------------------------------------------:|:-----------------:|:---------------------:|:-------------------------------------------------------------------------------------------------:|:---------:|
+    | Commenter les différentes méthodes et classes | 20 novembre 2024  | --------------------- | Mettre des commentaires sur chaque classe et méthodes avec la synthaxe du plugin javadoc de Maven |    ❌     |
+    | Ajout du workflow                             | 20 novembre 2024  | --------------------- | Ajout d uworkflow utilisant le plugin javadoc de Maven                                            |    ❌     |
 
 
 ---
