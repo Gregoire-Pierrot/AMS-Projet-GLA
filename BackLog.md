@@ -21,7 +21,7 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
     | Création du [README](README.md)                               | 18 novembre 2024  | 18 novembre 2024      | Fichier pour la page d'acceuil [GitHub](https://github.com/Gregoire-Pierrot/AMS-Projet-GLA)   |    ✅     |
     | Création du [BackLog](BackLog.md)                             | 18 novembre 2024  | 18 novembre 2024      | Fichier répertoriant toutes les tâches à réaliser                                             |    ✅     |
     | Ajout de [M.Rouvier](https://github.com/mrouvier) au GitHub   | 18 novembre 2024  | 18 novembre 2024      | Ajout du responsable d'UE au projet GitHub                                                    |    ✅     |
-    | Réalisation du Backlogs de [Console-App](#console-app)        | 20 novembre 2024  | --------------------- | Détaille des tâches à réaliser pour la partie [Console-App](Documentation.md/#console-app)    |    🕐     |
+    | Réalisation du Backlogs de [Console-App](#console-app)        | 20 novembre 2024  | 23 novembre 2024      | Détaille des tâches à réaliser pour la partie [Console-App](Documentation.md/#console-app)    |    ✅     |
     | Réalisation du Backlogs de [Web-App](#web-app)                | 20 novembre 2024  | --------------------- | Détaille des tâches à réaliser pour la partie [Web-App](Documentation.md/#web-app)            |    🕐     |
     | Réalisation de la [Documentation](Documention.md)             | 20 novembre 2024  | --------------------- | Création et rédaction de la [documentation](Documentation.md)                                 |    ❌     |
 
@@ -57,18 +57,19 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
 
     - ❌ **Classes de cryptomonnaies [20/11/24 - --/--/--]:**
 
-        | Tâches                                                                                                | Date de création  | Date d'implémentation | Description                                   | Réalisée  |
-        |:-----------------------------------------------------------------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------:|:---------:|
-        | Réalisation de l'interface [ICryptocurrency](console-app/src/main/java/ICryptocurrency.java)          | 20 novembre 2024  | --------------------- | Interface d'une cryptomonnaie                 |    ❌     |
-        | Réalisation de la classe abstraite [Cryptocurrency](console-app/src/main/java/Cryptocurrency.java)    | 20 novembre 2024  | --------------------- | Classe abstraite d'une cryptomonnaie          |    ❌     |
-        | Réalisation des classes de cryptomonnaie                                                              | 20 novembre 2024  | --------------------- | Classes des cryptomonnaie récupérer via l'API |    ❌     | 
+        | Tâches                                                                                                | Date de création  | Date d'implémentation | Description                                                                                                                                   | Réalisée  |
+        |:-----------------------------------------------------------------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------:|:---------:|
+        | Réalisation de l'interface [ICryptocurrency](console-app/src/main/java/ICryptocurrency.java)          | 20 novembre 2024  | --------------------- | Interface d'une cryptomonnaie                                                                                                                 |    ❌     |
+        | Réalisation de la classe [Cryptocurrency](console-app/src/main/java/Cryptocurrency.java)              | 20 novembre 2024  | --------------------- | Classe d'une cryptomonnaie                                                                                                                    |    ❌     |
+        | Réalisation des tests unitaire et des mocks                                                           | 23 novembre 2024  | --------------------- | Tests unitaires et mocks de l'interface [ICryptocurrency](console-app/src/main/java/ICryptocurrency.java) et des classes de cryptomonnaies    |    ❌     |
 
 
     - ❌ **Classe de requettes à l'API [20/11/24 - --/--/--]:**
 
-        | Tâches                                        | Date de création  | Date d'implémentation | Description                                          | Réalisée  |
-        |:---------------------------------------------:|:-----------------:|:---------------------:|:----------------------------------------------------:|:---------:|
-        | Réalisation de la classe de requettes à l'API  | 20 novembre 2024  | -------------------- | Classe permettant les différentes requettes à l'API  |    ❌     |
+        | Tâches                                        | Date de création  | Date d'implémentation | Description                                                                                                                       | Réalisée  |
+        |:---------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------------------------------------------------------------------------------------------:|:---------:|
+        | Réalisation de la classe de requettes à l'API | 20 novembre 2024  | --------------------- | Classe permettant les différentes requettes à l'API                                                                               |    ❌     |
+        | Réalisation des tests unitaires               | 23 novembre 2024  | --------------------- | Tests unitaires des requettes à l'API (utilisation du retour donné dans la [documentation](https://docs.coincap.io/) de l'API.)   |    ❌     |
 
 
     - ❌ **Classe de gestion du format JSON [20/11/24 - --/--/--]:**
@@ -76,14 +77,16 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
         | Tâches                                                | Date de création  | Date d'implémentation | Description                                   | Réalisée  |
         |:-----------------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------:|:---------:|
         | Réalisation de la classe de traitement des données    | 20 novembre 2024  | --------------------- | Classe traitant les données reçus via l'API   |    ❌     |
+        | Réalisation des test unitaires                        | 23 novembre 2024  | --------------------- | Tests unitaires du traitements des données    |    ❌     |
 
 
     - ❌ **Classes de création et d'enregistrement dans la base de données [20/11/24 - --/--/--]:**
 
-        | Tâches                                                        | Date de création  | Date d'implémentation | Description                                                   | Réalisée  |
-        |:-------------------------------------------------------------:|:-----------------:|:---------------------:|:-------------------------------------------------------------:|:---------:|
-        | Réalisation de la classe de création de la base de données    | 20 novembre 2024  | --------------------- | Classe créant la base de données                              |    ❌     |
-        | Réalisation de la classe d'enregistrement des données         | 20 novembre 2024  | --------------------- | Classe enregistrant les données reçu dans la base de donnée   |    ❌     |
+        | Tâches                                                        | Date de création  | Date d'implémentation | Description                                                           | Réalisée  |
+        |:-------------------------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------------------------------:|:---------:|
+        | Réalisation de la classe de création de la base de données    | 20 novembre 2024  | --------------------- | Classe créant la base de données                                      |    ❌     |
+        | Réalisation de la classe d'enregistrement des données         | 20 novembre 2024  | --------------------- | Classe enregistrant les données reçu dans la base de donnée           |    ❌     |
+        | Réalisation des tests unitaires                               | 23 novembre 2024  | --------------------- | Tests unitaires de la création des données dans la base de données    |    ❌     |
 
 
     - ❌ **Classe appelant de manière périodique l'API [20/11/24 - --/--/--]:**
@@ -95,12 +98,11 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
 
 - ❌ **Tests [18/11/24 - --/--/--]:**
     
-    | Tâches                                                                                                				            | Date de création  | Date d'implémentation | Description            				    		                    | Réalisée  | 
-    |:---------------------------------------------------------------------------------------------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------------------------------:|:---------:|
-    | Créations des tests unitaires avec [JUnit](https://junit.org/junit5/docs/current/api/) et [Mockito](https://site.mockito.org)	    | 18 novembre 2024  | --------------------- | Faire tout les tests unitaires avec JUnit et Mockito		            |    ❌     |
-    | Automatisation des tests avec [GitHub Actions](https://github.com/Gregoire-Pierrot/AMS-Projet-GLA/actions/) 			            | 18 novembre 2024  | --------------------- | Mise en place des tests unitaires automatique avec GitHub Actions     |    ❌     |
-    | Gestion de qualité de code avec [SonarQube](https://sonarcloud.io)								                                | 18 novembre 2024  | --------------------- | Utilisation de l'outil de gestion et de qualité de code SunarQube     |    ❌     |
-    | Ajouter les badges GitHub Actions et SonarQube au [README](README.md)								                                | 18 novembre 2024  | --------------------- | Bagdes indiquant la réussite des testes ainsi que le couvrage du code |    ❌     |
+    | Tâches                                                                                                		| Date de création  | Date d'implémentation | Description            				    		                    | Réalisée  | 
+    |:-------------------------------------------------------------------------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------------------------------:|:---------:|
+    | Automatisation des tests avec [GitHub Actions](https://github.com/Gregoire-Pierrot/AMS-Projet-GLA/actions/)   | 18 novembre 2024  | --------------------- | Mise en place des tests unitaires automatique avec GitHub Actions     |    ❌     |
+    | Gestion de qualité de code avec [SonarQube](https://sonarcloud.io)								            | 18 novembre 2024  | --------------------- | Utilisation de l'outil de gestion et de qualité de code SunarQube     |    ❌     |
+    | Ajouter les badges GitHub Actions et SonarQube au [README](README.md)								            | 18 novembre 2024  | --------------------- | Bagdes indiquant la réussite des testes ainsi que le couvrage du code |    ❌     |
 
 
 - ❌ **Ajout d'une page de documentation Java avec javadoc de Maven [20/11/24 - --/--/--]:**
