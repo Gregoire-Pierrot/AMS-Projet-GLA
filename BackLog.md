@@ -29,7 +29,7 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
 
 ## Console-App
 
-- ✅ **Configuration du fichier [pom.xml](console-app/pom.xml) [18/11/24 - --/--/--]:**
+- ✅ **Configuration du fichier [pom.xml](console-app/pom.xml) [18/11/24 - 06/12/24]:**
 
     | Tâches                                                                | Date de création  | Date d'implémentation | Description                                                               | Réalisée  |
     |:---------------------------------------------------------------------:|:-----------------:|:---------------------:|:-------------------------------------------------------------------------:|:---------:|
