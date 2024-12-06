@@ -34,7 +34,7 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
     | Tâches                                                                | Date de création  | Date d'implémentation | Description                                                                                   | Réalisée  |
     |:---------------------------------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------------------------------------------------------:|:---------:|
     | Création du [pom.xml](console-app/pom.xml)                            | 18 novembre 2024  | 18 novemnbre 2024     | Fichier contenant toutes les dépendances liés au projet maven                                 |    ✅     |
-    | Ajout des dépendances dans le fichier [pom.xml](console-app/pom.xml)  | 20 novembre 2024  | --------------------- | HttpURLConnection, json, sqlite-jdbc, JUnit 5.11.3, Maven 17, Mockito 5.14.2, Jacoco 0.8.12   |    ❌     |
+    | Ajout des dépendances dans le fichier [pom.xml](console-app/pom.xml)  | 20 novembre 2024  | --------------------- | json, sqlite-jdbc, JUnit 5.11.3, Maven 17, Mockito 5.14.2, Jacoco 0.8.12   |    ❌     |
 
 
 - 🕐 **Choix de l'écosystème [20/11/24 - --/--/--]:**
@@ -51,7 +51,6 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
     | Tâches                                                                            | Date de création  | Date d'implémentation | Description                                                                                       | Réalisée  | 
     |:---------------------------------------------------------------------------------:|:-----------------:|:---------------------:|:-------------------------------------------------------------------------------------------------:|:---------:|
     | Différentiation des fonctionnalitées à implémenter                                | 20 novembre 2024  | 20 novembre 2024      | Répartition en groupes des différentes parties du code                                            |    ✅     |
-    | Création d'un schéma                                                              | 20 novembre 2024  | --------------------- | Réalisation du diagramme de classes à implémenter dans la [documentaion](Documentation.md)        |    ❌     |
     | Réalisation des classes                                                           | 20 novembre 2024  | --------------------- | Implémentation du code de l'application [Cosole-App](Documentation.md/#console-app)               |    ❌     |
     | Rédiger la documentation du programme dans la [documentation](Documentation.md)   | 20 novembre 2024  | --------------------- | Documentation du programme                                                                        |    ❌     |
 
