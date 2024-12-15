@@ -1,6 +1,14 @@
+import org.json.JSONObject;
+
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello world !");
+        DBInitializer db = DBInitializer.getInstance();
+
+        JSONObject response = APIRequest.getInstance().sendGetRequest("/assets");
+        
+        if (response != null) {
+            System.out.println(response.toString());
+        }
     }
 }
