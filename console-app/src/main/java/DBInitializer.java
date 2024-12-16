@@ -47,7 +47,7 @@ public class DBInitializer {
     private void createTableTime(Connection conn){
         String createTableSQL = "CREATE TABLE IF NOT EXISTS time ("
                 + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + "timestamp DATETIME NOT NULL UNIQUE )";
+                + "timestamp TIMESTAMP NOT NULL UNIQUE )";
         
         String createIndexSQL = "CREATE INDEX IF NOT EXISTS idx_time_timestamp ON time(timestamp)";
 
@@ -86,13 +86,13 @@ public class DBInitializer {
                 + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + "cryptocurrency_id TEXT NOT NULL, "
                 + "rank INTEGER NOT NULL, "
-                + "supply DOUBLE NOT NULL, "
-                + "maxSupply DOUBLE NOT NULL, "
-                + "marketCapUsd DOUBLE NOT NULL, "
-                + "volumeUsd24Hr DOUBLE NOT NULL, "
-                + "priceUsd DOUBLE NOT NULL, "
-                + "changePercent24Hr DOUBLE NOT NULL, "
-                + "vwap24Hr DOUBLE NOT NULL, "
+                + "supply DOUBLE, "
+                + "maxSupply DOUBLE, "
+                + "marketCapUsd DOUBLE, "
+                + "volumeUsd24Hr DOUBLE, "
+                + "priceUsd DOUBLE, "
+                + "changePercent24Hr DOUBLE, "
+                + "vwap24Hr DOUBLE, "
                 + "time_id INTEGER NOT NULL, "
                 + "FOREIGN KEY (cryptocurrency_id) REFERENCES cryptocurrency (id), "
                 + "FOREIGN KEY (time_id) REFERENCES time (id))";
@@ -116,12 +116,12 @@ public class DBInitializer {
                 + "id TEXT PRIMARY KEY, "
                 + "name TEXT NOT NULL UNIQUE, "
                 + "rank INTEGER NOT NULL UNIQUE, "
-                + "percentTotalVolume DOUBLE NOT NULL, "
-                + "volumeUsd DOUBLE NOT NULL, "
-                + "tradingPairs INTEGER NOT NULL, "
-                + "socket BOOLEAN NOT NULL, "
+                + "percentTotalVolume DOUBLE, "
+                + "volumeUsd DOUBLE, "
+                + "tradingPairs INTEGER, "
+                + "socket BOOLEAN, "
                 + "exchangeUrl TEXT NOT NULL, "
-                + "updated DATE NOT NULL )";
+                + "updated TIMESTAMP NOT NULL )";
         
         String createIndexSQL = "CREATE INDEX IF NOT EXISTS idx_exchanges_name ON exchanges(name)";
 

@@ -1,5 +1,12 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class DBManager {
     private static DBManager instance;
+    private Connection conn;
 
     public static DBManager getInstance(){
         if (instance == null){
@@ -8,21 +15,38 @@ public class DBManager {
         return instance;
     }
 
-    private DBManager() {}
+    private DBManager() { initConnection(); }
 
-    private void addTimeStamp(String timestamp){
+    private void initConnection(){
+        String url = "jdbc:sqlite:datab.db";
 
+        try (Connection conn = DriverManager.getConnection(url)) {
+            if (conn != null) {
+                System.out.println("Connection to SQLite has been established.");
+                this.conn = conn;
+            }
+        } catch (SQLException e) {
+            System.out.println("Connection to SQLite failed: " + e.getMessage());
+        }
     }
 
-    private void addCryptocurrency(String id, String symbol, String name){
-        
+    public void addCryptocurrency(Cryptocurrency cryptocurrency){
+        if (CryptocurrencyAlreadyExist(cryptocurrency)){
+            
+        }
     }
 
-    private void addCryptocurrencyData(String id, int rank, double supply, double maxSupply, double marketCapUsd, double volumeUsd24Hr, double priceUsd, double changePercent24Hr, double vwap24Hr, int timestamp){
+    public Boolean CryptocurrencyAlreadyExist(Cryptocurrency cryptocurrency){
+        String query = "SELECT 1 FROM cryptocurrency WHERE id = ?";
 
-    }
+        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, cryptocurrency.getId());
 
-    private void addExchanges(String id, String name, int rank, double percentTotalVolume, double volumeUsd, int tradingPairs, boolean socket, String exchangeUrl, int updated){
-
+            try (ResultSet rs = pstmt.executeQuery()) {
+                return rs.next();
+            }
+        } catch (SQLException e) {
+            return false;
+        }
     }
 }

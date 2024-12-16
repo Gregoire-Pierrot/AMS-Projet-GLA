@@ -10,7 +10,7 @@ import io.github.cdimascio.dotenv.Dotenv;
 public class APIRequest {
     private static APIRequest instance;
     private final String API_URL = "https://api.coincap.io/v2";
-    private final String API_KEY;
+    //private final String API_KEY;
 
     public static APIRequest getInstance(){
         if (instance == null){
@@ -20,11 +20,11 @@ public class APIRequest {
     }
 
     private APIRequest() {
-        Dotenv dotenv = Dotenv.load();
-        this.API_KEY = dotenv.get("COINCAP_API_KEY");
-        if (this.API_KEY == null || this.API_KEY.isEmpty()) {
-            throw new IllegalStateException("API Key is missing in .env file.");
-        }
+        //Dotenv dotenv = Dotenv.load();
+        //this.API_KEY = dotenv.get("COINCAP_API_KEY");
+        //if (this.API_KEY == null || this.API_KEY.isEmpty()) {
+        //    throw new IllegalStateException("API Key is missing in .env file.");
+        //}
     }
 
     public JSONObject sendGetRequest(String endpoint) {
@@ -38,7 +38,7 @@ public class APIRequest {
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setRequestProperty("Accept", "application/json");
-            connection.setRequestProperty("Authorization", "Bearer " + API_KEY);
+            //connection.setRequestProperty("Authorization", "Bearer " + API_KEY);
 
             int responseCode = connection.getResponseCode();
             if (responseCode != HttpURLConnection.HTTP_OK) {

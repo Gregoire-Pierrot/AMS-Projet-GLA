@@ -67,7 +67,7 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
 
         | Tâches                                        | Date de création  | Date d'implémentation | Description                                                                                                                       | Réalisée  |
         |:---------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------------------------------------------------------------------------------------------:|:---------:|
-        | Réalisation de la classe de requettes à l'API | 20 novembre 2024  | --------------------- | Classe permettant les différentes requettes à l'API                                                                               |    ❌     |
+        | Réalisation de la classe de requettes à l'API | 20 novembre 2024  | 15 decembre 2024      | Classe permettant les différentes requettes à l'API                                                                               |    ✅     |
         | Réalisation des tests unitaires               | 23 novembre 2024  | --------------------- | Tests unitaires des requettes à l'API (utilisation du retour donné dans la [documentation](https://docs.coincap.io/) de l'API.)   |    ❌     |
 
 
@@ -83,7 +83,7 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
 
         | Tâches                                                        | Date de création  | Date d'implémentation | Description                                                           | Réalisée  |
         |:-------------------------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------------------------------:|:---------:|
-        | Réalisation de la classe de création de la base de données    | 20 novembre 2024  | --------------------- | Classe créant la base de données                                      |    🕐     |
+        | Réalisation de la classe de création de la base de données    | 20 novembre 2024  | 15 decembre 2024      | Classe créant la base de données                                      |    ✅     |
         | Réalisation de la classe d'enregistrement des données         | 20 novembre 2024  | --------------------- | Classe enregistrant les données reçu dans la base de donnée           |    🕐     |
         | Réalisation des tests unitaires                               | 23 novembre 2024  | --------------------- | Tests unitaires de la création des données dans la base de données    |    ❌     |
 
