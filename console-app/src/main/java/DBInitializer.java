@@ -117,8 +117,8 @@ public class DBInitializer {
     private void createTableExchanges(Connection conn){
         String createTableSQL = "CREATE TABLE IF NOT EXISTS exchanges ("
                 + "id TEXT PRIMARY KEY, "
-                + "name TEXT NOT NULL UNIQUE, "
-                + "rank INTEGER NOT NULL UNIQUE, "
+                + "name TEXT NOT NULL, "
+                + "rank INTEGER NOT NULL, "
                 + "percentTotalVolume DOUBLE, "
                 + "volumeUsd DOUBLE, "
                 + "tradingPairs INTEGER, "

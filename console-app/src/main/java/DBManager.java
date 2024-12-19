@@ -30,7 +30,7 @@ public class DBManager {
         }
     }
 
-    public Boolean CryptocurrencyAlreadyExist(String id) throws SQLException {
+    public Boolean cryptocurrencyAlreadyExist(String id) throws SQLException {
         String queryCryptocurrency = "SELECT 1 FROM cryptocurrency WHERE id = ?";
 
         PreparedStatement pstmt = conn.prepareStatement(queryCryptocurrency);
@@ -40,7 +40,7 @@ public class DBManager {
         return rs.next();
     }
 
-    public Boolean TimeAlreadyExist(String timestamp) throws SQLException{
+    public Boolean timeAlreadyExist(String timestamp) throws SQLException{
         String queryTimeTimestamp = "SELECT 1 FROM time WHERE timestamp = ?";
 
         PreparedStatement pstmt = conn.prepareStatement(queryTimeTimestamp);
@@ -81,11 +81,11 @@ public class DBManager {
     
 
     public void addCryptocurrencyData(Cryptocurrency cryptocurrency) throws SQLException{
-        if (!CryptocurrencyAlreadyExist(cryptocurrency.getId())){
+        if (!cryptocurrencyAlreadyExist(cryptocurrency.getId())){
             addCryptocurrency(cryptocurrency.getId(), cryptocurrency.getSymbol(), cryptocurrency.getName(), cryptocurrency.getRank());
         }
 
-        if (!TimeAlreadyExist(cryptocurrency.getTimestamp())){
+        if (!timeAlreadyExist(cryptocurrency.getTimestamp())){
             addTime(cryptocurrency.getTimestamp());
         }
 
@@ -109,34 +109,36 @@ public class DBManager {
             pstmt.setInt(9, time_id);
 
             pstmt.executeUpdate();
+            System.out.println("New cryptocurrencydata added.");
         } catch (SQLException e){
             throw new SQLException("Error inserting cryptocurrencydata: " + e.getMessage());
         }
 
     }
-
+    
     public List<Cryptocurrency> getCryptocurrencies(String name) throws SQLException {
-        List<Cryptocurrency> cryptocurrencyDataList = new ArrayList<>();
-
-        String query = """
-                SELECT 
-                    c.id, c.rank, c.symbol, c.name, cd.supply, cd.maxSupply, cd.marketCapUsd, 
-                    cd.volumeUsd24Hr, cd.priceUsd, cd.changePercent24Hr, cd.vwap24Hr, t.timestamp
-                FROM 
-                    cryptocurrency c
-                JOIN 
-                    cryptocurrencydata cd ON c.id = cd.cryptocurrency_id
-                JOIN 
-                    time t ON cd.time_id = t.id
-                WHERE 
-                    c.name = ?
-                """;
-
+        String query = "SELECT "
+                + "c.id, "
+                + "c.symbol, "
+                + "c.name, "
+                + "c.rank, "
+                + "cd.supply, "
+                + "cd.maxSupply, "
+                + "cd.marketCapUsd, "
+                + "cd.volumeUsd24Hr, "
+                + "cd.priceUsd, "
+                + "cd.changePercent24Hr, "
+                + "cd.vwap24Hr, "
+                + "t.timestamp "
+                + "FROM cryptocurrency c JOIN cryptocurrencydata cd ON c.id = cd.cryptocurrency_id "
+                + "JOIN time t ON cd.time_id = t.id "
+                + "WHERE c.name = ?";
         PreparedStatement stmt = conn.prepareStatement(query);
         stmt.setString(1, name);
+        List<Cryptocurrency> cryptocurrencies = new ArrayList<>();
         try (ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
-                Cryptocurrency crypto = new Cryptocurrency(
+                cryptocurrencies.add(new Cryptocurrency(
                     rs.getString("id"),
                     rs.getInt("rank"),
                     rs.getString("symbol"),
@@ -148,13 +150,79 @@ public class DBManager {
                     rs.getDouble("priceUsd"),
                     rs.getDouble("changePercent24Hr"),
                     rs.getDouble("vwap24Hr"),
-                    rs.getString("timestamp")
-                );
-                cryptocurrencyDataList.add(crypto);
+                    rs.getString("timestamp")));
             }
         }
-
-        return cryptocurrencyDataList;
+        return cryptocurrencies;
     }
-    
+
+    public Boolean exchangeAlreadyExist(String id) throws SQLException {
+        String query = "SELECT id FROM exchanges WHERE id = ?";
+        PreparedStatement stmt = conn.prepareStatement(query);
+        stmt.setString(1, id);
+        ResultSet rs = stmt.executeQuery();
+        return rs.next();
+    }
+
+    public void updateExchange(String id, String name, int rank, double percentTotalVolume, double volumeUsd, double tradingPairs, boolean socket, String exchangeUrl, String updated) throws SQLException {
+        String updateExchange = "UPDATE exchanges SET name = ?, rank = ?, percentTotalVolume = ?, volumeUsd = ?, tradingPairs = ?, socket = ?, exchangeUrl = ?, updated = ? WHERE id = ?";
+        PreparedStatement pstmt = conn.prepareStatement(updateExchange);
+        pstmt.setString(1, name);
+        pstmt.setInt(2, rank);
+        pstmt.setDouble(3, percentTotalVolume);
+        pstmt.setDouble(4, volumeUsd);
+        pstmt.setDouble(5, tradingPairs);
+        pstmt.setBoolean(6, socket);
+        pstmt.setString(7, exchangeUrl);
+        pstmt.setString(8, updated);
+        pstmt.setString(9, id);
+        pstmt.executeUpdate();
+        System.out.println("Exchange updated.");
+    }
+
+    public void addExchange(Exchange exchange) throws SQLException {
+        if (exchangeAlreadyExist(exchange.getId())) {
+            updateExchange(exchange.getId(), exchange.getName(), exchange.getRank(), exchange.getPercentTotalVolume(), exchange.getVolumeUsd(), exchange.getTradingPairs(), exchange.getSocket(), exchange.getExchangeUrl(), exchange.getUpdated());
+            return;
+        }
+        String insertExchange = "INSERT INTO exchanges (id, name, rank, percentTotalVolume, volumeUsd, tradingPairs, socket, exchangeUrl, updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement pstmt = conn.prepareStatement(insertExchange);
+        pstmt.setString(1, exchange.getId());
+        pstmt.setString(2, exchange.getName());
+        pstmt.setInt(3, exchange.getRank());
+        pstmt.setDouble(4, exchange.getPercentTotalVolume());
+        pstmt.setDouble(5, exchange.getVolumeUsd());
+        pstmt.setDouble(6, exchange.getTradingPairs());
+        pstmt.setBoolean(7, exchange.getSocket());
+        pstmt.setString(8, exchange.getExchangeUrl());
+        pstmt.setString(9, exchange.getUpdated());
+        try {
+            pstmt.execute();
+            System.out.println("New exchange added.");
+        } catch (Exception e) {
+            System.out.println(exchange.getName() + " : " + exchange.getId() + " already exist.");
+            e.printStackTrace();
+        }
+    }
+
+    public List<Exchange> getExchanges() throws SQLException {
+        String query = "SELECT * FROM exchanges";
+        PreparedStatement stmt = conn.prepareStatement(query);
+        List<Exchange> exchanges = new ArrayList<>();
+        try (ResultSet rs = stmt.executeQuery()) {
+            while (rs.next()) {
+                exchanges.add(new Exchange(
+                    rs.getString("id"),
+                    rs.getString("name"),
+                    rs.getInt("rank"),
+                    rs.getDouble("percentTotalVolume"),
+                    rs.getDouble("volumeUsd"),
+                    rs.getInt("tradingPairs"),
+                    rs.getBoolean("socket"),
+                    rs.getString("exchangeUrl"),
+                    rs.getString("updated")));
+            }
+        }
+        return exchanges;
+    }
 }
