@@ -1,16 +1,16 @@
+import java.sql.SQLException;
 import java.util.List;
 
 import org.json.JSONObject;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         DBInitializer db = DBInitializer.getInstance();
 
         JSONObject response = APIRequest.getInstance().sendGetRequest("/assets");
-        System.out.println(response.get("timestamp"));
 
-        /*if (response != null) {
+        if (response != null) {
             System.out.println("#----------------------------------------#\nCryptomonnaies enregistrées :");
             System.out.println("------------------");
             List<Cryptocurrency> cryptocurrencies = JSONManager.getInstance().createCryptocurrencies(response);
@@ -19,13 +19,24 @@ public class Main {
                 System.out.println("------------------");
             }
             System.out.println("#----------------------------------------#");
-        }*/
+
+            System.out.println("Inserting Cryptocurrencies into database ...");
+            for (Cryptocurrency cryptocurrency : cryptocurrencies){
+                DBManager.getInstance().addCryptocurrencyData(cryptocurrency);
+            }
+            System.out.println("Done !");
+        }
+
+        List<Cryptocurrency> cryptocurrencies = DBManager.getInstance().getCryptocurrencies("fetch");
+        for (Cryptocurrency cryptocurrency : cryptocurrencies){
+            System.out.println(cryptocurrency.toString());
+        }
 
         //System.out.println();
 
-        response = APIRequest.getInstance().sendGetRequest("/exchanges");
+        /*response = APIRequest.getInstance().sendGetRequest("/exchanges");
 
-        /*if (response != null) {
+        if (response != null) {
             System.out.println("#----------------------------------------#\nPlateformes d'échange enregistré :");
             System.out.println("------------------");
             List<Exchange> exchanges = JSONManager.getInstance().createExchanges(response);

@@ -10,7 +10,7 @@ public interface ICryptocurrency {
     double getVolumeUsd24Hr();
     double getPriceUsd();
     double getChangePercent24Hr();
-    double getVwrap24Hr();
+    double getVwap24Hr();
     String getTimestamp();
     String toString();
 

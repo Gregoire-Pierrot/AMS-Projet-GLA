@@ -1,3 +1,5 @@
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +21,8 @@ public class JSONManager {
     public List<Cryptocurrency> createCryptocurrencies(JSONObject response){
         List<Cryptocurrency> cryptocurrencies = new ArrayList<Cryptocurrency>();
 
-        String timestamp = response.get("timestamp").toString();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        String timestamp = sdf.format(new Timestamp(Long.parseLong(response.get("timestamp").toString())));
 
         JSONArray datas = response.getJSONArray("data");
 
@@ -48,6 +51,8 @@ public class JSONManager {
     public List<Exchange> createExchanges(JSONObject response){
         List<Exchange> exchanges = new ArrayList<Exchange>();
 
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+
         JSONArray datas = response.getJSONArray("data");
         for (int i = 0; i < datas.length(); i++){
             JSONObject data = datas.getJSONObject(i);
@@ -60,7 +65,7 @@ public class JSONManager {
             int tradingPairs = data.optInt("tradingPairs");
             boolean socket = data.optBoolean("socket");
             String exchangeUrl = data.getString("exchangeUrl");
-            String updated = data.get("updated").toString();
+            String updated = sdf.format(new Timestamp(Long.parseLong(data.get("updated").toString())));
 
             Exchange exchange = new Exchange(id, name, rank, percentTotalVolume, volumeUsd, tradingPairs, socket, exchangeUrl, updated);
             exchanges.add(exchange);

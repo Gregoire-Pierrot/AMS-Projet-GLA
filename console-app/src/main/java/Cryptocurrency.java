@@ -9,7 +9,7 @@ public class Cryptocurrency implements ICryptocurrency{
     private final double volumeUsd24Hr;
     private final double priceUsd;
     private final double changerPercent24Hr;
-    private final double vwrap24Hr;
+    private final double vwap24Hr;
     private final String timestamp;
 
     public Cryptocurrency(String id, int rank, String symbol, String name, double supply, double maxSupply, double marketCapUsd, double volumeUsd24Hr, double priceUsd, double changePercent24Hr, double vwap24Hr, String timestamp){
@@ -23,7 +23,7 @@ public class Cryptocurrency implements ICryptocurrency{
         this.volumeUsd24Hr = volumeUsd24Hr;
         this.priceUsd = priceUsd;
         this.changerPercent24Hr = changePercent24Hr;
-        this.vwrap24Hr = vwap24Hr;
+        this.vwap24Hr = vwap24Hr;
         this.timestamp = timestamp;
     }
 
@@ -58,14 +58,14 @@ public class Cryptocurrency implements ICryptocurrency{
     public double getChangePercent24Hr() { return changerPercent24Hr; }
 
     @Override
-    public double getVwrap24Hr() { return vwrap24Hr; }
+    public double getVwap24Hr() { return vwap24Hr; }
 
     @Override
     public String getTimestamp() { return timestamp; }
 
     @Override
     public String toString() {
-        return "Id : " + id + "\nRank : " + rank + "\nSymbol : " + symbol + "\nName : " + name + "\nSupply : " + supply + "\nMaxSupply : " + maxSupply + "\nMarketCapUsd : " + marketCapUsd + "\nVolumeUsd24Hr : " + volumeUsd24Hr + "\nPriceUsd : " + priceUsd + "\nChangePercent24Hr : " + changerPercent24Hr + "\nVwrap24Hr : " + vwrap24Hr + "\nTimestamp : " + timestamp;
+        return "Id : " + id + "\nRank : " + rank + "\nSymbol : " + symbol + "\nName : " + name + "\nSupply : " + supply + "\nMaxSupply : " + maxSupply + "\nMarketCapUsd : " + marketCapUsd + "\nVolumeUsd24Hr : " + volumeUsd24Hr + "\nPriceUsd : " + priceUsd + "\nChangePercent24Hr : " + changerPercent24Hr + "\nVwap24Hr : " + vwap24Hr + "\nTimestamp : " + timestamp;
     }
     
 }

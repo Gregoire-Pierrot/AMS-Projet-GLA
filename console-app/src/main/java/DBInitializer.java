@@ -47,7 +47,7 @@ public class DBInitializer {
     private void createTableTime(Connection conn){
         String createTableSQL = "CREATE TABLE IF NOT EXISTS time ("
                 + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + "timestamp TIMESTAMP NOT NULL UNIQUE )";
+                + "timestamp TEXT NOT NULL UNIQUE )";
         
         String createIndexSQL = "CREATE INDEX IF NOT EXISTS idx_time_timestamp ON time(timestamp)";
 
@@ -58,6 +58,7 @@ public class DBInitializer {
             
         } catch (SQLException e) {
             System.out.println("Error creating table: " + e.getMessage());
+            e.printStackTrace();
         }    
     }
 
@@ -65,7 +66,8 @@ public class DBInitializer {
         String createTableSQL = "CREATE TABLE IF NOT EXISTS cryptocurrency ("
                 + "id TEXT PRIMARY KEY, "
                 + "symbol TEXT NOT NULL UNIQUE, "
-                + "name TEXT NOT NULL UNIQUE )";
+                + "name TEXT NOT NULL UNIQUE, "
+                + "rank INTEGER NOT NULL )";
         
         String createIndexSymbolSQL = "CREATE INDEX IF NOT EXISTS idx_cryptocurrency_symbol ON cryptocurrency(symbol)";
         String createIndexNameSQL = "CREATE INDEX IF NOT EXISTS idx_cryptocurrency_name ON cryptocurrency(name)";
@@ -78,6 +80,7 @@ public class DBInitializer {
             
         } catch (SQLException e) {
             System.out.println("Error creating table: " + e.getMessage());
+            e.printStackTrace();
         }        
     }
 
@@ -85,7 +88,6 @@ public class DBInitializer {
         String createTableSQL = "CREATE TABLE IF NOT EXISTS cryptocurrencydata ("
                 + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + "cryptocurrency_id TEXT NOT NULL, "
-                + "rank INTEGER NOT NULL, "
                 + "supply DOUBLE, "
                 + "maxSupply DOUBLE, "
                 + "marketCapUsd DOUBLE, "
@@ -108,6 +110,7 @@ public class DBInitializer {
 
         } catch (SQLException e) {
             System.out.println("Error creating table: " + e.getMessage());
+            e.printStackTrace();
         }        
     }
 
@@ -132,6 +135,7 @@ public class DBInitializer {
             
         } catch (SQLException e) {
             System.out.println("Error creating table: " + e.getMessage());
+            e.printStackTrace();
         }   
     }
 
