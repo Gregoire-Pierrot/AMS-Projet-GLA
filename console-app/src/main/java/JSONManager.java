@@ -6,11 +6,23 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+/**
+ * Java class to manage JSON data.
+ * 
+ * @author Grégoire Pierrot.
+ */
 public class JSONManager {
+    /** Singleton **/
     private static JSONManager instance;
 
+    /** Constructor */
     private JSONManager() {}
 
+    /**
+     * Get the JSONManager instance.
+     * 
+     * @return instance of JSONManager.
+     */
     public static JSONManager getInstance(){
         if (instance == null){
             instance = new JSONManager();
@@ -18,6 +30,17 @@ public class JSONManager {
         return instance;
     }
 
+    /**
+     * Creates a list of Cryptocurrency objects from a JSONObject.
+     * 
+     * The object should have a "timestamp" field and a "data" field which is
+     * an array of objects with the following fields:
+     *     id, rank, symbol, name, supply, maxSupply, marketCapUsd,
+     *     volumeUsd24Hr, priceUsd, changePercent24Hr, vwrap24Hr
+     * 
+     * @param response The JSONObject to parse.
+     * @return A list of Cryptocurrency objects.
+     */
     public List<Cryptocurrency> createCryptocurrencies(JSONObject response){
         List<Cryptocurrency> cryptocurrencies = new ArrayList<Cryptocurrency>();
 
@@ -48,6 +71,17 @@ public class JSONManager {
         return  cryptocurrencies;
     }
 
+    /**
+     * Creates a list of Exchange objects from a JSONObject.
+     * 
+     * The object should have a "data" field which is an array of objects with
+     * the following fields:
+     *     exchangeId, name, rank, percentTotalVolume, volumeUsd, tradingPairs,
+     *     socket, exchangeUrl, updated
+     * 
+     * @param response The JSONObject to parse.
+     * @return A list of Exchange objects.
+     */
     public List<Exchange> createExchanges(JSONObject response){
         List<Exchange> exchanges = new ArrayList<Exchange>();
 

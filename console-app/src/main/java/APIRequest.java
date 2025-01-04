@@ -7,27 +7,58 @@ import org.json.JSONObject;
 
 import io.github.cdimascio.dotenv.Dotenv;
 
+/**
+ * Java class singleton to make requests to coicap API.
+ * 
+ * @author Grégoire Pierrot.
+ */
 public class APIRequest {
+    /** Unique instance of APIRequest. **/
     private static APIRequest instance;
+    /** URL of the API **/
     private final String API_URL = "https://api.coincap.io/v2";
+    /** API Key **/
     private final String API_KEY;
 
-    public static APIRequest getInstance(){
-        if (instance == null){
+    /**
+     * Get the APIRequest instance.
+     * 
+     * @return instance of APIRequest.
+     */
+    public static APIRequest getInstance() {
+        if (instance == null) {
             instance = new APIRequest();
         }
         return instance;
     }
 
+    /**
+     * APIRequest constructor.
+     */
     private APIRequest() {
-        Dotenv dotenv = Dotenv.load();
-        this.API_KEY = dotenv.get("COINCAP_API_KEY");
+        this.API_KEY = getApiKey();
         if (this.API_KEY == null || this.API_KEY.isEmpty()) {
             throw new IllegalStateException("API Key is missing in .env file.");
         }
     }
 
-    public JSONObject sendGetRequest(String endpoint) {
+    /**
+     * Take the environement variable API_KEY.
+     * 
+     * @return The environement vairable COINCAP_API_KEY from .env.
+     */
+    private String getApiKey() {
+        Dotenv dotenv = Dotenv.load();
+        return dotenv.get("COINCAP_API_KEY");
+    }
+
+    /**
+     * Send a requests to the API_URL with the endpoint.
+     * 
+     * @param endpoint Endpoint url.
+     * @return JSObject created whit the request's response.
+     */
+    public JSONObject sendGetRequest(final String endpoint) {
         HttpURLConnection connection = null;
         BufferedReader reader = null;
 

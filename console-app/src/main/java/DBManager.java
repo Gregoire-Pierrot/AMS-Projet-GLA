@@ -6,10 +6,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Java class singeton to manage the database
+ */
 public class DBManager {
+    /** Singleton **/
     private static DBManager instance;
+    /** Connection to the database **/
     private Connection conn;
 
+    /**
+     * Get the DBManager instance.
+     * 
+     * @return instance of DBManager.
+     */
     public static DBManager getInstance() throws SQLException{
         if (instance == null){
             instance = new DBManager();
@@ -17,6 +27,11 @@ public class DBManager {
         return instance;
     }
 
+    /**
+     * Contructor. Initialize the conection.
+     * 
+     * @throws SQLException.
+     */
     private DBManager() throws SQLException { initConnection(); }
 
     private void initConnection() throws SQLException {
@@ -30,6 +45,12 @@ public class DBManager {
         }
     }
 
+    /**
+     * Return boolean if a cryptocurrency with this id alwready exist.
+     * @param id of the cryptocurrency.
+     * @return boolean if cryptocurrency alwready exist.
+     * @throws SQLException.
+     */
     public Boolean cryptocurrencyAlreadyExist(String id) throws SQLException {
         String queryCryptocurrency = "SELECT 1 FROM cryptocurrency WHERE id = ?";
 
@@ -40,6 +61,13 @@ public class DBManager {
         return rs.next();
     }
 
+
+    /**
+     * Return boolean if a time have been already added in the database.
+     * @param timestamp refering to the time.
+     * @return boolean if time alwready exist.
+     * @throws SQLException.
+     */
     public Boolean timeAlreadyExist(String timestamp) throws SQLException{
         String queryTimeTimestamp = "SELECT 1 FROM time WHERE timestamp = ?";
 
@@ -49,6 +77,12 @@ public class DBManager {
         return rs.next();
     }
 
+    /**
+     * Return the ID of a time for the timestamp.
+     * @param timestamp of the time.
+     * @return id of the time with this timestamp.
+     * @throws SQLException.
+     */
     public int getTimeId(String timestamp) throws SQLException {
         String queryTimeId = "SELECT id FROM time WHERE timestamp = ?";
 
@@ -58,15 +92,28 @@ public class DBManager {
         return rs.getInt("id");
     }
 
+    /**
+     * Add a new time to the database.
+     * @param timestamp of the new time.
+     * @throws SQLException.
+     */
     public void addTime(String timestamp) throws SQLException{
         String insertTime = "INSERT INTO time (timestamp) VALUES (?)";
 
         PreparedStatement pstmt = conn.prepareStatement(insertTime);
         pstmt.setString(1, timestamp);
         pstmt.execute();
-        System.out.println("New time added.");
+    //    System.out.println("New time added.");
     }
 
+    /**
+     * Add a new Cryptocurrency tot the database.
+     * @param id of the new Cryptocurrency.
+     * @param symbol of the new Cryptocurrency.
+     * @param name of the new Cryptocurrency.
+     * @param rank of the new Cryptocurrency.
+     * @throws SQLException.
+     */
     public void addCryptocurrency(String id, String symbol, String name, int rank) throws SQLException{
         String insertCryptocurrency = "INSERT INTO cryptocurrency (id, symbol, name, rank) VALUES (?, ?, ?, ?)";
 
@@ -76,10 +123,15 @@ public class DBManager {
         pstmt.setString(3, name);
         pstmt.setInt(4, rank);
         pstmt.execute();
-        System.out.println("New cryptocurrency added.");
+    //    System.out.println("New cryptocurrency added.");
     }
     
 
+    /**
+     * Add the data of a cryptocurrency to the database.
+     * @param cryptocurrency datas to add.
+     * @throws SQLException.
+     */
     public void addCryptocurrencyData(Cryptocurrency cryptocurrency) throws SQLException{
         if (!cryptocurrencyAlreadyExist(cryptocurrency.getId())){
             addCryptocurrency(cryptocurrency.getId(), cryptocurrency.getSymbol(), cryptocurrency.getName(), cryptocurrency.getRank());
@@ -109,13 +161,19 @@ public class DBManager {
             pstmt.setInt(9, time_id);
 
             pstmt.executeUpdate();
-            System.out.println("New cryptocurrencydata added.");
+        //    System.out.println("New cryptocurrencydata added.");
         } catch (SQLException e){
             throw new SQLException("Error inserting cryptocurrencydata: " + e.getMessage());
         }
 
     }
     
+    /**
+     * Get the list of cryptocurrencies for this name.
+     * @param name query's paramater on cryptocurrencies.
+     * @return list of cryptocurrency with the name.
+     * @throws SQLException.
+     */
     public List<Cryptocurrency> getCryptocurrencies(String name) throws SQLException {
         String query = "SELECT "
                 + "c.id, "
@@ -156,6 +214,12 @@ public class DBManager {
         return cryptocurrencies;
     }
 
+    /**
+     * Return boolean if a exchange have been already added in the database.
+     * @param id if of the exchange.
+     * @return boolean if exchange alwready exist.
+     * @throws SQLException.
+     */
     public Boolean exchangeAlreadyExist(String id) throws SQLException {
         String query = "SELECT id FROM exchanges WHERE id = ?";
         PreparedStatement stmt = conn.prepareStatement(query);
@@ -164,6 +228,19 @@ public class DBManager {
         return rs.next();
     }
 
+    /**
+     * Update an exchange with new paramaters.
+     * @param id new id for this exchange.
+     * @param name new name for this exchange.
+     * @param rank new rank for this exchange.
+     * @param percentTotalVolume new percentTotalVolume for this exchange.
+     * @param volumeUsd new volumeUsd for this exchange.
+     * @param tradingPairs new tradingPairs for this exchange.
+     * @param socket new socket for this exchange.
+     * @param exchangeUrl new exchangeUrl for this exchange.
+     * @param updated new update for this exchange.
+     * @throws SQLException
+     */
     public void updateExchange(String id, String name, int rank, double percentTotalVolume, double volumeUsd, double tradingPairs, boolean socket, String exchangeUrl, String updated) throws SQLException {
         String updateExchange = "UPDATE exchanges SET name = ?, rank = ?, percentTotalVolume = ?, volumeUsd = ?, tradingPairs = ?, socket = ?, exchangeUrl = ?, updated = ? WHERE id = ?";
         PreparedStatement pstmt = conn.prepareStatement(updateExchange);
@@ -177,9 +254,14 @@ public class DBManager {
         pstmt.setString(8, updated);
         pstmt.setString(9, id);
         pstmt.executeUpdate();
-        System.out.println("Exchange updated.");
+    //    System.out.println("Exchange updated.");
     }
 
+    /**
+     * Add a new exchnage to the database.
+     * @param exchange to add.
+     * @throws SQLException.
+     */
     public void addExchange(Exchange exchange) throws SQLException {
         if (exchangeAlreadyExist(exchange.getId())) {
             updateExchange(exchange.getId(), exchange.getName(), exchange.getRank(), exchange.getPercentTotalVolume(), exchange.getVolumeUsd(), exchange.getTradingPairs(), exchange.getSocket(), exchange.getExchangeUrl(), exchange.getUpdated());
@@ -198,13 +280,18 @@ public class DBManager {
         pstmt.setString(9, exchange.getUpdated());
         try {
             pstmt.execute();
-            System.out.println("New exchange added.");
+        //    System.out.println("New exchange added.");
         } catch (Exception e) {
             System.out.println(exchange.getName() + " : " + exchange.getId() + " already exist.");
             e.printStackTrace();
         }
     }
 
+    /**
+     * Get all the exchanges of the database.
+     * @return a list of exchange.
+     * @throws SQLException.
+     */
     public List<Exchange> getExchanges() throws SQLException {
         String query = "SELECT * FROM exchanges";
         PreparedStatement stmt = conn.prepareStatement(query);
