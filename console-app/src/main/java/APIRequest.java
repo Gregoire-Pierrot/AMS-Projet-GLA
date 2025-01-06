@@ -48,8 +48,7 @@ public class APIRequest {
      * @return The environement vairable COINCAP_API_KEY from .env.
      */
     private String getApiKey() {
-        Dotenv dotenv = Dotenv.load();
-        return dotenv.get("COINCAP_API_KEY");
+        return Dotenv.load().get("COINCAP_API_KEY");
     }
 
     /**

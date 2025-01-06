@@ -1,103 +1,228 @@
 import java.sql.SQLException;
 import java.time.Duration;
 import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.Scanner;
 
 import org.json.JSONObject;
 
 public class Main {
+    private static volatile boolean running = true;
+    private static volatile DBManager dbManager;
 
     public static void main(String[] args) throws SQLException, InterruptedException {
         DBInitializer.getInstance();
-        DBManager dbManager = DBManager.getInstance();
-        Instant startProg = Instant.now();
-        double totalLostTime = 0;
-        for (int i = 0; i < 20; i++){
-            Instant start = Instant.now();
-            JSONObject response = APIRequest.getInstance().sendGetRequest("/assets");
-            Instant endRequest = Instant.now();
-            totalLostTime += Duration.between(start, endRequest).toMillis();
+        dbManager = DBManager.getInstance();
 
-            if (response != null) {
-                //System.out.println("#----------------------------------------#\nCryptomonnaies enregistrées :");
-                //System.out.println("------------------");
-                List<Cryptocurrency> cryptocurrencies = JSONManager.getInstance().createCryptocurrencies(response);
-                //for (Cryptocurrency cryptocurrency : cryptocurrencies){
-                //    System.out.println(cryptocurrency.toString());
-                //    System.out.println("------------------");
-                //}
-                //System.out.println("#----------------------------------------#");
+        /*List<Thread> threads = new ArrayList<Thread>();
 
-                //System.out.println("Inserting Cryptocurrencies into database ...");
-                for (Cryptocurrency cryptocurrency : cryptocurrencies){
-                    DBManager.getInstance().addCryptocurrencyData(cryptocurrency);
+        Thread cryptocurrenciesThread = new Thread(() -> {
+            System.out.println("Starting cryptocurrencies thread...");
+            try {
+                while (running) {
+                    Instant start = Instant.now();
+                    JSONObject response = APIRequest.getInstance().sendGetRequest("/assets");
+        
+                    if (response != null) {
+                        List<Cryptocurrency> cryptocurrencies = JSONManager.getInstance().createCryptocurrencies(response);
+                        for (Cryptocurrency cryptocurrency : cryptocurrencies){
+                            dbManager.addCryptocurrencyData(cryptocurrency);
+                        }
+                        System.out.println("New cryptocurrencies added.");
+                    }
+        
+                    Instant end = Instant.now();
+                    long duration = Duration.between(start, end).toMillis();
+        
+                    if (duration < 1000) {
+                        Thread.sleep(1000 - duration);
+                    }
                 }
-                //System.out.println("Done !");
+                System.out.println("Cryptocurrencies thread stopped.");
+            } catch (SQLException | InterruptedException e) {
+                e.printStackTrace();
             }
+        });
 
-            Instant end = Instant.now();
-            long duration = Duration.between(start, end).toMillis();
+        Thread exchangesThread = new Thread(() -> {
+            System.out.println("Starting exchanges thread...");
+            try {
+                while (running) {
+                    Instant start = Instant.now();
+                    JSONObject response = APIRequest.getInstance().sendGetRequest("/exchanges");
+        
+                    if (response != null) {
+                        List<Exchange> exchanges = JSONManager.getInstance().createExchanges(response);
+                        for (Exchange exchange : exchanges){
+                            dbManager.addExchange(exchange);
+                        }
+                        System.out.println("New exchanges added.");
+                    }
+        
+                    Instant end = Instant.now();
+                    long duration = Duration.between(start, end).toMillis();
+        
+                    if (duration < 10000) {
+                        Thread.sleep(10000 - duration);
+                    }
+                }
+                System.out.println("Exchanges thread stopped.");
+            } catch (SQLException | InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
 
-            if (duration < 1000) {
-                System.out.println("Needed");
-                Thread.sleep(1000 - duration);
+        Thread inputThread = new Thread(() -> {
+            System.out.println("Starting input thread...");
+            Scanner scanner = new Scanner(System.in);
+            while (running) {
+                if (scanner.nextLine().equals("stop")){
+                    System.out.println("Stopping...");
+                    running = false;
+                }
+                else if (scanner.nextLine().startsWith("stop")){
+                    String line = scanner.nextLine();
+                    String[] arguments = line.split(" ");
+                    for (int i = 1; i < arguments.length; i++){
+                        switch (arguments[i]){
+                            case "-c":
+                                cryptocurrenciesThreadRunning = false;
+                                break;
+                            case "-e":
+                                cryptocurrenciesThreadRunning = false;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                else if (scanner.nextLine().startsWith("start")){
+                    System.out.println("Hello");
+                    String line = scanner.nextLine();
+                    String[] arguments = line.split(" ");
+                    if (arguments.length == 1){ System.out.println("Erreur d'argument, veuillez rentrer au moins un argument."); }
+                    for (int i = 1; i < arguments.length; i++){
+                        switch (arguments[i]){
+                            case "-c":
+                                cryptocurrenciesThread.start();
+                                break;
+                            case "-e":
+                                exchangesThread.start();
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                else { System.out.println("Commande non reconnue."); }
+            }
+            scanner.close();
+        });
+
+        threads.add(inputThread);
+
+        if (args.length == 0){
+            threads.add(cryptocurrenciesThread);
+            threads.add(exchangesThread);
+        }
+        else {
+            if (!args[0].equals("start")){ System.out.println("Erreur d'argument, veuillez utiliser \"start\" comme premier argument"); System.exit(1); }
+            if (args.length > 1){
+                for (int i = 1; i < args.length; i++){
+                    switch (args[i]) {
+                        case "-c":
+                            threads.add(cryptocurrenciesThread);
+                            break;
+                        case "-e":
+                            threads.add(exchangesThread);
+                            break;                
+                        default:
+                            System.out.println("Argument non valide : " + args[i] + ", veuillez utiliser \"start\" suivi d'arguments valides");
+                            System.exit(1);
+                    }
+                }
             }
         }
 
-        Instant endProg = Instant.now();
-        long duration = Duration.between(startProg, endProg).toMillis();
-        System.out.println("Program duration : " + duration + " ms");
-        System.out.println("Average request duration : " + (totalLostTime / 20) + " ms");
+        for (Thread thread : threads){
+            thread.start();
+        }*/
 
-        /*for (int i = 0; i < 20; i++){
-            JSONObject response = APIRequest.getInstance().sendGetRequest("/exchanges");
-    
-            if (response != null) {
-                System.out.println("#----------------------------------------#\nPlateformes d'échange enregistrées :");
-                System.out.println("------------------");
-                List<Exchange> exchanges = JSONManager.getInstance().createExchanges(response);
-                for (Exchange exchange : exchanges){
-                    System.out.println(exchange.toString());
-                System.out.println("------------------");
+        Thread inputThread = new Thread(() -> {
+            System.out.println("Starting input thread...");
+            Scanner scanner = new Scanner(System.in);
+            while (running) {
+                if (scanner.nextLine().equals("stop")){
+                    System.out.println("Stopping...");
+                    running = false;
                 }
-                System.out.println("#----------------------------------------#");
-
-                System.out.println("Inserting Exchanges into database ...");
-                for (Exchange exchange : exchanges){
-                    DBManager.getInstance().addExchange(exchange);
-                }
-                System.out.println("Done !");
             }
-            Thread.sleep(1000);
-        }
+            scanner.close();
+        });
 
-        System.out.println(DBManager.getInstance().getExchanges().size());*/
+        Thread cryptocurrenciesThread = new Thread(() -> {
+            System.out.println("Starting cryptocurrencies thread...");
+            while (running){
+                try {  
+                    Instant start = Instant.now();
+                    JSONObject response = APIRequest.getInstance().sendGetRequest("/assets");
 
-        List<Cryptocurrency> cryptocurrencies = dbManager.getCryptocurrencies("Bitcoin");
+                    if (response != null) {
+                        List<Cryptocurrency> cryptocurrencies = JSONManager.getInstance().createCryptocurrencies(response);
+                        for (Cryptocurrency cryptocurrency : cryptocurrencies){
+                            dbManager.addCryptocurrencyData(cryptocurrency);
+                        }
+                        System.out.println("New cryptocurrencies added.");
+                    }
+                
+                    Instant end = Instant.now();
+                    long duration = Duration.between(start, end).toMillis();
+                
+                    if (duration < 1000) {
+                        Thread.sleep(1000 - duration);
+                    }
+                } catch (SQLException | InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
-        double count = 0;
-        for (int i = cryptocurrencies.size() - 20; i < cryptocurrencies.size() - 1; i++){
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+        Thread exchangeThread = new Thread(() -> {
+            System.out.println("Starting exchnage thread...");
+            while (running){
+                try {  
+                    Instant start = Instant.now();
+                    JSONObject response = APIRequest.getInstance().sendGetRequest("/exchanges");
 
-            String timestamp1 = cryptocurrencies.get(i).getTimestamp();
-            String timestamp2 = cryptocurrencies.get(i + 1).getTimestamp();
+                    if (response != null) {
+                        List<Exchange> exchanges = JSONManager.getInstance().createExchanges(response);
+                        for (Exchange exchange : exchanges){
+                            dbManager.addExchange(exchange);
+                        }
+                        System.out.println("New exchanges added.");
+                    }
+                
+                    Instant end = Instant.now();
+                    long duration = Duration.between(start, end).toMillis();
+                
+                    if (duration < 10000) {
+                        Thread.sleep(10000 - duration);
+                    }
+                } catch (SQLException | InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
-            LocalDateTime dateTime1 = LocalDateTime.parse(timestamp1, formatter);
-            LocalDateTime dateTime2 = LocalDateTime.parse(timestamp2, formatter);
+        System.out.println("Starting ...\n---------------------");
 
-            Duration duration2 = Duration.between(dateTime1, dateTime2);
+        inputThread.start();
+        cryptocurrenciesThread.start();
+        exchangeThread.start();
 
-            count += duration2.getSeconds();
-        }
+        System.out.println("Started !");
+        System.out.println("Use \"stop\" to stop the program.");
 
-        System.out.println(count);
-        count = count / 19;
-        System.out.println("Average time between two updates : " + count + " seconds.");
 
-        //for (Cryptocurrency cryptocurrency : cryptocurrencies){
-        //    System.out.println(cryptocurrency.toString());
-        //}
     }
 }

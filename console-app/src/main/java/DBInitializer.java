@@ -97,10 +97,10 @@ public class DBInitializer {
         try (Statement stmt = conn.createStatement()) {
             stmt.execute(createTableSQL);
             stmt.execute(createIndexSQL);
-            System.out.println("Table created successfully.");
+            System.out.println("Table time loaded successfully.");
             
         } catch (SQLException e) {
-            System.out.println("Error creating table: " + e.getMessage());
+            System.out.println("Error loading table time: " + e.getMessage());
             e.printStackTrace();
         }    
     }
@@ -132,10 +132,10 @@ public class DBInitializer {
             stmt.execute(createTableSQL);
             stmt.execute(createIndexSymbolSQL);
             stmt.execute(createIndexNameSQL);
-            System.out.println("Table created successfully.");
+            System.out.println("Table cryptocurrency loaded successfully.");
             
         } catch (SQLException e) {
-            System.out.println("Error creating table: " + e.getMessage());
+            System.out.println("Error loading table cryptocurrency: " + e.getMessage());
             e.printStackTrace();
         }        
     }
@@ -183,10 +183,10 @@ public class DBInitializer {
             stmt.execute(createTableSQL);
             stmt.execute(createIndexCryptoIDSQL);
             stmt.execute(createIndexTimeIDSQL);
-            System.out.println("Table created successfully.");
+            System.out.println("Table cryptocurrencydata loaded successfully.");
 
         } catch (SQLException e) {
-            System.out.println("Error creating table: " + e.getMessage());
+            System.out.println("Error loading table cryptocurrencydata: " + e.getMessage());
             e.printStackTrace();
         }        
     }
@@ -226,24 +226,11 @@ public class DBInitializer {
         try (Statement stmt = conn.createStatement()) {
             stmt.execute(createTableSQL);
             stmt.execute(createIndexSQL);
-            System.out.println("Table created successfully.");
+            System.out.println("Table exchanges load successfully.");
             
         } catch (SQLException e) {
-            System.out.println("Error creating table: " + e.getMessage());
+            System.out.println("Error loading table exchanges: " + e.getMessage());
             e.printStackTrace();
         }   
     }
-
-    /*
-    private void createTableMarkets(Connection conn){
-        
-    }
-    */
-
-    /*
-    private void createTableCandles(Connection conn){
-        
-    }
-    */
-
 }
