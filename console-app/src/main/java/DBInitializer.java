@@ -43,7 +43,7 @@ public class DBInitializer {
      * If the connection is successful, it calls createTables to set up the database schema.
      * Logs a message indicating whether the connection was successful or failed.
      */
-    private void createBD(){
+    void createBD(){
         String url = "jdbc:sqlite:datab.db";
 
         // Créer une connexion à la base de données
