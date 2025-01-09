@@ -61,7 +61,7 @@ header {
 }
 
 a:hover {
-    color: #0056b3;
+    color: #007BFF;
     text-decoration: none;
 }
 
@@ -71,4 +71,32 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#reg{
+    color: #007BFF;
+}
+
+#conn{
+    color: #28a745;
+}
+
+#conn:hover{
+    color: #28a745;
+    text-decoration: none;
+}
+
+#conn::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #28a745;
+    transition: width 0.3s ease;
+}
+
+#conn:hover::after {
+    width: 100%;
 }
