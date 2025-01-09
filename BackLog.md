@@ -41,41 +41,41 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
 
     | Tâches                                                                            | Date de création  | Date d'implémentation | Description                               | Réalisée  | 
     |:---------------------------------------------------------------------------------:|:-----------------:|:---------------------:|:-----------------------------------------:|:---------:|
-    | Choisir les données à enregistrer dans la base de donée                           | 20 novembre 2024  | --------------------- | Choix des données à stocker               |    ✅     |
-    | Choisir l'API à utilisé                                                           | 20 novembre 2024  | --------------------- | API utilisé pour la récolte des données   |    ✅     |
+    | Choisir les données à enregistrer dans la base de donée                           | 20 novembre 2024  | 20 novembre 2024      | Choix des données à stocker               |    ✅     |
+    | Choisir l'API à utilisé                                                           | 20 novembre 2024  | 20 novembre 2024      | API utilisé pour la récolte des données   |    ✅     |
     | Rédiger les choix d'API et de librairie dans la [documentation](Documentation.md) | 20 novembre 2024  | --------------------- | Justification des choix fait              |    ❌     |
 
 
-- ❌ **Architecture et implémentation du code [20/11/24 - --/--/--]:**
+- 🕐 **Architecture et implémentation du code [20/11/24 - --/--/--]:**
 
     | Tâches                                                                            | Date de création  | Date d'implémentation | Description                                                                                       | Réalisée  | 
     |:---------------------------------------------------------------------------------:|:-----------------:|:---------------------:|:-------------------------------------------------------------------------------------------------:|:---------:|
     | Différentiation des fonctionnalitées à implémenter                                | 20 novembre 2024  | 20 novembre 2024      | Répartition en groupes des différentes parties du code                                            |    ✅     |
-    | Réalisation des classes                                                           | 20 novembre 2024  | --------------------- | Implémentation du code de l'application [Cosole-App](Documentation.md/#console-app)               |    🕐     |
+    | Réalisation des classes                                                           | 20 novembre 2024  | 6 janvier 2025        | Implémentation du code de l'application [Cosole-App](Documentation.md/#console-app)               |    ✅     |
     | Rédiger la documentation du programme dans la [documentation](Documentation.md)   | 20 novembre 2024  | --------------------- | Documentation du programme dans la [documentation](Documentation.md)                              |    ❌     |
 
-    - ❌ **Classes de cryptomonnaies [20/11/24 - --/--/--]:**
+    - ✅ **Classes de cryptomonnaies [20/11/24 - --/--/--]:**
 
         | Tâches                                                                                                | Date de création  | Date d'implémentation | Description                                                                                                                                   | Réalisée  |
         |:-----------------------------------------------------------------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------:|:---------:|
-        | Réalisation de l'interface [ICryptocurrency](console-app/src/main/java/ICryptocurrency.java)          | 20 novembre 2024  | --------------------- | Interface d'une cryptomonnaie                                                                                                                 |    ❌     |
-        | Réalisation de la classe [Cryptocurrency](console-app/src/main/java/Cryptocurrency.java)              | 20 novembre 2024  | --------------------- | Classe d'une cryptomonnaie                                                                                                                    |    ❌     |
-        | Réalisation des tests unitaire et des mocks                                                           | 23 novembre 2024  | --------------------- | Tests unitaires et mocks de l'interface [ICryptocurrency](console-app/src/main/java/ICryptocurrency.java) et des classes de cryptomonnaies    |    ❌     |
+        | Réalisation de l'interface [ICryptocurrency](console-app/src/main/java/ICryptocurrency.java)          | 20 novembre 2024  | 16 décembre 2024      | Interface d'une cryptomonnaie                                                                                                                 |    ✅     |
+        | Réalisation de la classe [Cryptocurrency](console-app/src/main/java/Cryptocurrency.java)              | 20 novembre 2024  | 16 décembre 2024      | Classe d'une cryptomonnaie                                                                                                                    |    ✅     |
+        | Réalisation des tests unitaire et des mocks                                                           | 23 novembre 2024  | 6 janvier 2025        | Tests unitaires et mocks de l'interface [ICryptocurrency](console-app/src/main/java/ICryptocurrency.java) et des classes de cryptomonnaies    |    ✅     |
 
 
-    - ❌ **Classe de requettes à l'API [20/11/24 - --/--/--]:**
+    - ✅ **Classe de requettes à l'API [20/11/24 - --/--/--]:**
 
         | Tâches                                        | Date de création  | Date d'implémentation | Description                                                                                                                       | Réalisée  |
         |:---------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------------------------------------------------------------------------------------------:|:---------:|
         | Réalisation de la classe de requettes à l'API | 20 novembre 2024  | 15 decembre 2024      | Classe permettant les différentes requettes à l'API                                                                               |    ✅     |
-        | Réalisation des tests unitaires               | 23 novembre 2024  | --------------------- | Tests unitaires des requettes à l'API (utilisation du retour donné dans la [documentation](https://docs.coincap.io/) de l'API.)   |    ❌     |
+        | Réalisation des tests unitaires               | 23 novembre 2024  | 6 janvier 2025        | Tests unitaires des requettes à l'API (utilisation du retour donné dans la [documentation](https://docs.coincap.io/) de l'API.)   |    ✅     |
 
 
-    - ❌ **Classe de gestion du format JSON [20/11/24 - --/--/--]:**
+    - 🕐 **Classe de gestion du format JSON [20/11/24 - --/--/--]:**
 
         | Tâches                                                | Date de création  | Date d'implémentation | Description                                   | Réalisée  |
         |:-----------------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------:|:---------:|
-        | Réalisation de la classe de traitement des données    | 20 novembre 2024  | --------------------- | Classe traitant les données reçus via l'API   |    ❌     |
+        | Réalisation de la classe de traitement des données    | 20 novembre 2024  | 16 décembre 2024      | Classe traitant les données reçus via l'API   |    ✅     |
         | Réalisation des test unitaires                        | 23 novembre 2024  | --------------------- | Tests unitaires du traitements des données    |    ❌     |
 
 
@@ -84,15 +84,15 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
         | Tâches                                                        | Date de création  | Date d'implémentation | Description                                                           | Réalisée  |
         |:-------------------------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------------------------------:|:---------:|
         | Réalisation de la classe de création de la base de données    | 20 novembre 2024  | 15 decembre 2024      | Classe créant la base de données                                      |    ✅     |
-        | Réalisation de la classe d'enregistrement des données         | 20 novembre 2024  | --------------------- | Classe enregistrant les données reçu dans la base de donnée           |    🕐     |
+        | Réalisation de la classe d'enregistrement des données         | 20 novembre 2024  | 16 décembre 2024      | Classe enregistrant les données reçu dans la base de donnée           |    ✅     |
         | Réalisation des tests unitaires                               | 23 novembre 2024  | --------------------- | Tests unitaires de la création des données dans la base de données    |    ❌     |
 
 
-    - ❌ **Classe appelant de manière périodique l'API [20/11/24 - --/--/--]:**
+    - ✅ **Classe appelant de manière périodique l'API [20/11/24 - --/--/--]:**
 
         | Tâches                                    | Date de création  | Date d'implémentation | Description                                                                       | Réalisée  |
         |:-----------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------------------------------------------:|:---------:|
-        | Réalisation de la classe appelant l'API   | 20 novembre 2024  | --------------------- | Classe [Main.java](src/main/java/Main.java) appelant l'API de manière périodique  |    ❌     |
+        | Réalisation de la classe appelant l'API   | 20 novembre 2024  | 4 janvier 2025        | Classe [Main.java](src/main/java/Main.java) appelant l'API de manière périodique  |    ✅     |
 
 
 - ❌ **Tests [18/11/24 - --/--/--]:**
