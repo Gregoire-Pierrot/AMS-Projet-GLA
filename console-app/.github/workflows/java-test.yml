@@ -1,12 +1,6 @@
 name: Java CI with Maven
 
-on:
-  push:
-    branches: 
-      - Automatisation
-  pull_request:
-    branches: 
-      - Automatisation
+on: [pull_request]
 
 jobs:
   build:
