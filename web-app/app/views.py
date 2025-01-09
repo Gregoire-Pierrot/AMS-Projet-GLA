@@ -95,3 +95,28 @@ def logout():
     session.clear()
     return redirect(url_for('homepage'))
 
+
+#-------------------------------#
+#			/cryptohome			#
+#-------------------------------#
+@app.route('/cryptohome', methods=['GET'])
+def cryptohome():
+    username = None
+    if 'username' in session:
+        username = session['username']
+    return render_template('cryptohome.html', username=username)
+
+#-------------------------------#
+#        /api/cryptohome        #
+#-------------------------------#
+@app.route('/api/cryptohome', methods=['GET'])
+def api_cryptohome():
+    cryptocurrencies_name_by_rank = getCryptocurrenciesNameByRank()
+    cryptocurrencies_last_value = []
+    for name in cryptocurrencies_name_by_rank:
+        cryptocurrencies_last_value.append(getLastValue(name))
+
+    response = {
+        "values": cryptocurrencies_last_value
+    }
+    return jsonify(response)

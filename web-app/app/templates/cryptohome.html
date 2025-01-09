@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+
+{% block body %}
+    <div class="crypto_home">
+        <h1>CryptoHome</h1>
+        <table id="crypto-table" class="crypto-list">
+            <thead>
+                <tr>
+                    <th>Rang</th>
+                    <th>Nom</th>
+                    <th>Symbole</th>
+                    <th>Prix (USD)</th>
+                    <th>Changement (%)</th>
+                    <th>Supply</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/style_cryptohome.css')}}">
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='assets/js/script_cryptohome.js') }}"></script>
+{% endblock %}
