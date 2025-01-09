@@ -32,20 +32,9 @@ jobs:
       - name: Verify Javadoc Directory
         run: ls -alh ./console-app/target/site/apidocs
 
-      # Étape 4 : Uploader la documentation Javadoc
-      - name: Upload Javadoc
-        run: |
-          cd console-app
-          git checkout --orphan gh-pages
-          git rm -rf .
-          cp -r ./console-app/target/site/apidocs/* .
-          git add .
-          git commit -m "Update Javadoc"
-          git push origin gh-pages
-
-      # Étape 5 : Deployer la documentation Javadoc    
+      # Étape 4 : Deployer la documentation Javadoc    
       - name: Deploy Javadoc to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .console-app/target/site/apidocs
+          publish_dir: ./target/site/apidocs
