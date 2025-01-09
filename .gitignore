@@ -3,3 +3,6 @@
 datab.db
 console-app/target
 web-app/venv
+web-app/app/.env
+web-app/nginx/certs
+web-app/app/__pycache__
