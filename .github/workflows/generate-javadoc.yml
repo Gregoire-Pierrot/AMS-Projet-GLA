@@ -36,7 +36,7 @@ jobs:
       - name: Upload Javadoc
         run: |
           cd console-app
-          git checkout gh-pages
+          git checkout --orphan gh-pages
           git rm -rf .
           cp -r ./console-app/target/site/apidocs/* .
           git add .
