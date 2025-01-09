@@ -41,7 +41,7 @@ public class Cryptocurrency implements ICryptocurrency {
      * @param marketCapUsd The market capitalization of the cryptocurrency in US dollars.
      * @param volumeUsd24Hr The 24 hour volume of the cryptocurrency in US dollars.
      * @param priceUsd The price of the cryptocurrency in US dollars.
-     * @param  The 24 hour change in percentage.
+     * @param changePercent24Hr The 24 hour change in percentage.
      * @param vwap24Hr The 24 hour volume weighted average price of the cryptocurrency.
      * @param timestamp The timestamp of the data.
      */
