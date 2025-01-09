@@ -101,6 +101,9 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <overview>src/main/javadoc/package-use.html</overview>
+                </configuration>
             </plugin>
         </plugins>
     </build>
