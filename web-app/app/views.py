@@ -4,6 +4,7 @@ from app import app
 from datab import init_db
 from register import RegisterForm
 from login import LoginForm
+from account import AccountForm
 from request_db import *
 from functions import *
 from flask import request, render_template, redirect, url_for, session, jsonify
@@ -68,7 +69,21 @@ def login():
 def account():
     if 'username' in session:
         username = session['username']
-        return render_template('account.html', email=GetEmailByUsername(username), username=username, firstname=GetFirstnameByUsername(username), lastname=GetLastnameByUsername(username))
+        email = GetEmailByUsername(username)
+        form = AccountForm()
+        if form.validate_on_submit():
+            email_t = False
+            if request.form['email'] != email:
+                email_t = EmailAlreadyUsed(request.form['email'])
+            username_t = False
+            if request.form['username'] != username:
+                username_t = UsernameAlreadyUsed(request.form['username'])
+            if email_t or username_t:
+                return render_template('account.html', email=GetEmailByUsername(username), username=username, firstname=GetFirstnameByUsername(username), lastname=GetLastnameByUsername(username), form=form, email_t=email_t, username_t=username_t)
+            elif UpdateAccount(email, request.form['email'], request.form['username'], request.form['firstname'], request.form['lastname']):
+                return redirect(url_for('account'))
+            return render_template('account.html', form=form, error=True)
+        return render_template('account.html', email=GetEmailByUsername(username), username=username, firstname=GetFirstnameByUsername(username), lastname=GetLastnameByUsername(username), form=form)
     return redirect(url_for('login'))
 
 

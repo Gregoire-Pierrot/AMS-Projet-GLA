@@ -17,7 +17,6 @@ def Register(email, username, firstname, lastname, password):
     # At this point, the email and the username were alwready verified.
 
     hashed_password = generate_password_hash(password)
-    print(len(hashed_password))
     cursor.execute('''
     INSERT INTO users (email, username, firstname, lastname, password)
     VALUES (?, ?, ?, ?, ?)
@@ -52,6 +51,31 @@ def Login(email, password):
     row_dict = dict(row)
     if check_password_hash(row_dict['password'], password):
         return True
+    
+    
+#---------------------------------------#
+#				UpdateAccount			#
+#---------------------------------------#
+def UpdateAccount(old_email, email, username, firstname, lastname):
+    conn = sqlite3.connect('datab.db')
+    cursor = conn.cursor()
+    
+    # At this point, the email and the username were alwready verified.
+
+    cursor.execute('''
+    UPDATE users 
+    SET email = ?, username = ?, firstname = ?, lastname = ?
+    WHERE email = ?
+    ''', (email, username, firstname, lastname, old_email))
+    conn.commit()
+    conn.close()
+    
+    print("---------------------------")
+    print("Utilisateur modifié !")
+    print("Username : ", username)
+    print("---------------------------")
+    
+    return True
 
 
 #---------------------------------------------------#

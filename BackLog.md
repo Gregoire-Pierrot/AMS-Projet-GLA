@@ -96,7 +96,7 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
         | Réalisation de la classe appelant l'API   | 20 novembre 2024  | 4 janvier 2025        | Classe [Main.java](src/main/java/Main.java) appelant l'API de manière périodique  |    ✅     |
 
 
-- ❌ **Tests [18/11/24 - --/--/--]:**
+- 🕐 **Tests [18/11/24 - --/--/--]:**
     
     | Tâches                                                                                                		| Date de création  | Date d'implémentation | Description            				    		                    | Réalisée  | 
     |:-------------------------------------------------------------------------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------------------------------:|:---------:|
@@ -135,12 +135,12 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
     |:-----------------------------------------:|:-----------------:|:---------------------:|:---------------------------------:|:-------------:|
     | Création de la base de donée utilisateur  | 9 janvier 2025    | --------------------- | Création de la base de données    |       ✅      |
 
-- ❌ **Ajout des différentes pages du site [09/01/25 - --/--/--]**
+- 🕐 **Ajout des différentes pages du site [09/01/25 - --/--/--]**
 
     | Tâches                                                                    | Date de création  | Date d'implémentation | Description                                                                                                                                                                           | Réalisée      |
     |:-------------------------------------------------------------------------:|:-----------------:|:---------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------:|
     | Création de la page de garde                                              | 9 janvier 2025    | --------------------- | Réalisation de la page de garde (/) du site                                                                                                                                           |       ✅      |
     | Création des page d'enregistrement et de connexion                        | 9 janvier 2025    | --------------------- | Réalisation des pages de connexion et d'enregistrement des utilisateurs                                                                                                               |       ✅      |
-    | Création de la page de modification d'information utilisateur             | 9 janvier 2025    | --------------------- | Réalisation de la page de modifiaction des données utilisateurs                                                                                                                       |       ❌      |
+    | Création de la page de modification d'information utilisateur             | 9 janvier 2025    | --------------------- | Réalisation de la page de modifiaction des données utilisateurs                                                                                                                       |       ✅      |
     | Création de la page de visualisation des cryptomonnaies                   | 9 janvier 2025    | --------------------- | Réalisation des pages de visualisation des cryptommonaies sous forme de courbe de prix, graphique en chandelier et heatmap. Elle comportera aussi un algorithme de prévision de prix  |       ❌      |
     | Création de la page d'ajout d'alertes                                     | 9 janvier 2025    | --------------------- | Réalisation de la page de création d'alerte de prix ou de variation de pourcentage                                                                                                    |       ❌      |
