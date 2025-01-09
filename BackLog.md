@@ -24,6 +24,7 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
     | Réalisation du Backlogs de [Console-App](#console-app)        | 20 novembre 2024  | 23 novembre 2024      | Détaille des tâches à réaliser pour la partie [Console-App](Documentation.md/#console-app)    |    ✅     |
     | Réalisation du Backlogs de [Web-App](#web-app)                | 20 novembre 2024  | --------------------- | Détaille des tâches à réaliser pour la partie [Web-App](Documentation.md/#web-app)            |    ❌     |
     | Réalisation de la [Documentation](Documention.md)             | 20 novembre 2024  | --------------------- | Création et rédaction de la [documentation](Documentation.md)                                 |    ❌     |
+    | Dockerisation et déploiement des applications                 | 9 janvier 2025    | --------------------- | Dockerisation des application + déploiement avec Kubertnet                                    |    ❌     |
 
 ---
 
@@ -54,7 +55,7 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
     | Réalisation des classes                                                           | 20 novembre 2024  | 6 janvier 2025        | Implémentation du code de l'application [Cosole-App](Documentation.md/#console-app)               |    ✅     |
     | Rédiger la documentation du programme dans la [documentation](Documentation.md)   | 20 novembre 2024  | --------------------- | Documentation du programme dans la [documentation](Documentation.md)                              |    ❌     |
 
-    - ✅ **Classes de cryptomonnaies [20/11/24 - --/--/--]:**
+    - ✅ **Classes de cryptomonnaies [20/11/24 - 06/01/25]:**
 
         | Tâches                                                                                                | Date de création  | Date d'implémentation | Description                                                                                                                                   | Réalisée  |
         |:-----------------------------------------------------------------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------:|:---------:|
@@ -63,7 +64,7 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
         | Réalisation des tests unitaire et des mocks                                                           | 23 novembre 2024  | 6 janvier 2025        | Tests unitaires et mocks de l'interface [ICryptocurrency](console-app/src/main/java/ICryptocurrency.java) et des classes de cryptomonnaies    |    ✅     |
 
 
-    - ✅ **Classe de requettes à l'API [20/11/24 - --/--/--]:**
+    - ✅ **Classe de requettes à l'API [20/11/24 - 06/01/25]:**
 
         | Tâches                                        | Date de création  | Date d'implémentation | Description                                                                                                                       | Réalisée  |
         |:---------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------------------------------------------------------------------------------------------:|:---------:|
@@ -88,7 +89,7 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
         | Réalisation des tests unitaires                               | 23 novembre 2024  | --------------------- | Tests unitaires de la création des données dans la base de données    |    ❌     |
 
 
-    - ✅ **Classe appelant de manière périodique l'API [20/11/24 - --/--/--]:**
+    - ✅ **Classe appelant de manière périodique l'API [20/11/24 - 04/01/25]:**
 
         | Tâches                                    | Date de création  | Date d'implémentation | Description                                                                       | Réalisée  |
         |:-----------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------------------------------------------:|:---------:|
@@ -99,19 +100,47 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
     
     | Tâches                                                                                                		| Date de création  | Date d'implémentation | Description            				    		                    | Réalisée  | 
     |:-------------------------------------------------------------------------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------------------------------:|:---------:|
-    | Automatisation des tests avec [GitHub Actions](https://github.com/Gregoire-Pierrot/AMS-Projet-GLA/actions/)   | 18 novembre 2024  | --------------------- | Mise en place des tests unitaires automatique avec GitHub Actions     |    ❌     |
+    | Automatisation des tests avec [GitHub Actions](https://github.com/Gregoire-Pierrot/AMS-Projet-GLA/actions/)   | 18 novembre 2024  | 9 janvier 2025        | Mise en place des tests unitaires automatique avec GitHub Actions     |    ✅     |
     | Gestion de qualité de code avec [SonarQube](https://sonarcloud.io)								            | 18 novembre 2024  | --------------------- | Utilisation de l'outil de gestion et de qualité de code SunarQube     |    ❌     |
     | Ajouter les badges GitHub Actions et SonarQube au [README](README.md)								            | 18 novembre 2024  | --------------------- | Bagdes indiquant la réussite des testes ainsi que le couvrage du code |    ❌     |
 
 
-- ❌ **Ajout d'une page de documentation Java avec javadoc de Maven [20/11/24 - --/--/--]:**
+- ✅ **Ajout d'une page de documentation Java avec javadoc de Maven [20/11/24 - 09/01/25]:**
 
     | Tâches                                        | Date de création  | Date d'implémentation | Description                                                                                       | Réalisée  |
     |:---------------------------------------------:|:-----------------:|:---------------------:|:-------------------------------------------------------------------------------------------------:|:---------:|
-    | Commenter les différentes méthodes et classes | 20 novembre 2024  | --------------------- | Mettre des commentaires sur chaque classe et méthodes avec la synthaxe du plugin javadoc de Maven |    ❌     |
-    | Ajout du workflow                             | 20 novembre 2024  | --------------------- | Ajout d uworkflow utilisant le plugin javadoc de Maven                                            |    ❌     |
+    | Commenter les différentes méthodes et classes | 20 novembre 2024  | 6 janvier 2025        | Mettre des commentaires sur chaque classe et méthodes avec la synthaxe du plugin javadoc de Maven |    ✅     |
+    | Ajout du workflow                             | 20 novembre 2024  | 9 janvier 2025        | Ajout d uworkflow utilisant le plugin javadoc de Maven                                            |    ✅     |
 
+- ❌ **Contneurisation de l'application [09/01/25 - --/--/--]**
+    
+    | Tâches                                       | Date de création  | Date d'implémentation | Description                                       | Réalisée  |
+    |:--------------------------------------------:|:-----------------:|:---------------------:|:-------------------------------------------------:|:---------:|
+    | Création d'un conteneur pour l'applicaction  | 9 janvier 2025    | --------------------- | Réalisation d'un contneur pour cette application  |    ❌     |
 
 ---
 
 ## Web-App
+
+- ❌ **Initialisation du serveur flask [09/01/25 - --/--/--]**
+
+    | Tâches                               | Date de création  | Date d'implémentation | Description                   | Réalisée  |
+    |:------------------------------------:|:-----------------:|:---------------------:|:-----------------------------:|:---------:|
+    | Création de l'environnement python   | 9 janvier 2025    | --------------------- | Création de l'environnement   |    ❌     |
+    | Création du serveur flask            | 9 janvier 2025    | --------------------- | Création du serveur           |    ❌     |
+
+- ❌ **Création de la base de données utilisateur [09/01/25 - --/--/--]**
+
+    | Tâches                                    | Date de création  | Date d'implémentation | Description                       | Réalisée      |
+    |:-----------------------------------------:|:-----------------:|:---------------------:|:---------------------------------:|:-------------:|
+    | Création de la base de donée utilisateur  | 9 janvier 2025    | --------------------- | Création de la base de données    |       ❌      |
+
+- ❌ **Ajout des différentes pages du site [09/01/25 - --/--/--]**
+
+    | Tâches                                                                    | Date de création  | Date d'implémentation | Description                                                                                                                                                                           | Réalisée      |
+    |:-------------------------------------------------------------------------:|:-----------------:|:---------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------:|
+    | Création de la page de garde                                              | 9 janvier 2025    | --------------------- | Réalisation de la page de garde (/) du site                                                                                                                                           |       ❌      |
+    | Création des page d'enregistrement et de connexion                        | 9 janvier 2025    | --------------------- | Réalisation des pages de connexion et d'enregistrement des utilisateurs                                                                                                               |       ❌      |
+    | Création de la page de modification d'information utilisateur             | 9 janvier 2025    | --------------------- | Réalisation de la page de modifiaction des données utilisateurs                                                                                                                       |       ❌      |
+    | Création de la page de visualisation des cryptomonnaies                   | 9 janvier 2025    | --------------------- | Réalisation des pages de visualisation des cryptommonaies sous forme de courbe de prix, graphique en chandelier et heatmap. Elle comportera aussi un algorithme de prévision de prix  |       ❌      |
+    | Création de la page d'ajout d'alertes                                     | 9 janvier 2025    | --------------------- | Réalisation de la page de création d'alerte de prix ou de variation de pourcentage                                                                                                    |       ❌      |
