@@ -19,6 +19,7 @@ public class DBManager {
      * Get the DBManager instance.
      * 
      * @return instance of DBManager.
+     * @throws SQLException if the query fail.
      */
     public static DBManager getInstance() throws SQLException{
         if (instance == null){

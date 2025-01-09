@@ -10,23 +10,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Étape 1 : Cloner le depot
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Étape 2 : Configurer JDK 17
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
 
+      # Étape 3 : Créer la documentation Javadoc
       - name: Build with Maven and generate Javadoc
         run: |
           cd console-app
           mvn clean install
           mvn javadoc:javadoc
 
+      # Étape 4 : Deployer la documentation Javadoc    
       - name: Deploy Javadoc to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./target/reports/apidocs
+          publish_dir: .console-app/target/site/apidocs
