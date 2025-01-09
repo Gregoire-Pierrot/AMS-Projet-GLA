@@ -27,14 +27,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-m2-
 
-      # Étape 4 : Se déplacer dans le dossier de console-app
-      - name: Set up working directory
-        run: cd console-app
-
-      # Étape 5 : Compiler le projet avec Maven
-      - name: Build with Maven
-        run: mvn clean install
-
-      # Étape 6 : Exécuter les tests Maven
-      - name: Run tests
-        run: mvn test
+      # Étape 4 : Exécuter les test Maven
+      - name: Set up and run tests
+        run: |
+          cd console-app
+          mvn clean install
+          mvn test
