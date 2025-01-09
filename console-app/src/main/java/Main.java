@@ -86,6 +86,8 @@ public class Main {
         cryptocurrenciesThread.start();
         exchangeThread.start();
 
+        Thread.sleep(1000);
+
         System.out.println("Started !");
         System.out.println("Use \"stop\" to stop the program.");
     }
