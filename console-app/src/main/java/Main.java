@@ -6,10 +6,29 @@ import java.util.Scanner;
 
 import org.json.JSONObject;
 
+/**
+ * Main class to run the console app.
+ */
 public class Main {
+    /** Variables **/
     private static volatile boolean running = true;
     private static volatile DBManager dbManager;
 
+        /**
+         * Main method to run the console app.
+         * <p>
+         * This method launch three threads:
+         * <ul>
+         * <li>Input thread to catch the user's input and stop the program if "stop" is typed.</li>
+         * <li>Cryptocurrencies thread to get the data of all the cryptocurrencies and add it to the database.</li>
+         * <li>Exchange thread to get the data of all the exchanges and add it to the database.</li>
+         * </ul>
+         * <p>
+         * The program print the data added to the database.
+         * @param args the command line arguments
+         * @throws SQLException if the query fail.
+         * @throws InterruptedException if the thread is interrupted.
+         */
     public static void main(String[] args) throws SQLException, InterruptedException {
         DBInitializer.getInstance();
         dbManager = DBManager.getInstance();
