@@ -25,7 +25,7 @@ jobs:
       - name: Build with Maven and generate Javadoc
         run: |
           cd console-app
-          mvn clean install
+          mvn clean
           mvn -B javadoc:javadoc
       
       # Afficher le contenu du dossier javadoc
@@ -37,4 +37,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: .console-app/target/site/apidocs
+          publish_dir: console-app/target/site/apidocs
