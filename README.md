@@ -26,7 +26,7 @@ Kubernetes sera utilisée pour déployer l'application de manière efficace et s
 ## Status
 
 ### Console-App
-- [Insérer badges GitHub Actions]
+- ![Java CI with Maven](https://github.com/Gregoire-Pierrot/AMS-Projet-GLA/actions/workflows/java-tests.yml/badge.svg)
 - [Insérer badges SonarQube]
 
 ### Web-App
