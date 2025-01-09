@@ -27,6 +27,11 @@ jobs:
           cd console-app
           mvn clean install
           mvn javadoc:javadoc
+      
+      # Afficher le contenu du dossier javadoc
+      - name: Verify Javadoc Directory
+        run: ls -alh ./console-app/target/site/apidocs
+
 
       # Étape 4 : Deployer la documentation Javadoc    
       - name: Deploy Javadoc to GitHub Pages
