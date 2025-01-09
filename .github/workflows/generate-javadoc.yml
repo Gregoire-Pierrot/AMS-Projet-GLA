@@ -1,9 +1,6 @@
 name: Generate Javadoc and Deploy to GitHub Pages
 
-on:
-  push:
-    branches:
-      - main
+on: [pull_request]
 
 jobs:
   javadoc:
