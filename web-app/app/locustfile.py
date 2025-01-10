@@ -21,7 +21,10 @@ class CryptoWebUser(HttpUser):
 
     @task
     def api_cryptovision(self):
-        self.client.get("/api/cryptovision/Bitcoin")
+        self.client.get("/api/values/cryptovision/Bitcoin")
+    @task
+    def api_cryptovision(self):
+        self.client.get("/api/percentage/cryptovision/Bitcoin")
 
     @task
     def authenticated_account_view(self):

@@ -14,7 +14,7 @@ datas_path = 'database/datas.db'
 
 def getPeriod(cryptocurrencies, period):
     now = datetime.now()
-    start_time = now - timedelta(days=period)
+    start_time = now - timedelta(hours=period)
     
     cryptocurrencies_on_period = []
     for cryptocurrency in cryptocurrencies:

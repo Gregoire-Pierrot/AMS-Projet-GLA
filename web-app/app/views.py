@@ -133,19 +133,44 @@ def api_cryptohome():
     }
     return jsonify(response)
 
-#-------------------------------#
-#   /api/cryptovision/<name>    #
-#-------------------------------#
-@app.route('/api/cryptovision/<name>', methods=['GET'])
-def api_cryptovision(name):
-    cryptocurrencies = getCryptocurrencies(name, 1)
+#----------------------------------------#
+#/api/values/cryptovision/<name>/<period>#
+#----------------------------------------#
+@app.route('/api/values/cryptovision/<name>/<period>', methods=['GET'])
+def api_cryptovision(name, period):
+    period = int(period)
+    cryptocurrencies = getCryptocurrencies(name, period)
     values = []
     times = []
     for cryptocurrency in cryptocurrencies:
         values.append(cryptocurrency[8])
         times.append(cryptocurrency[11])
+        
+    values = values[::-1]
+    times = times[::-1]
     
-    print(cryptocurrency[0])
+    response = {"name": cryptocurrency[0], "values": values, "times": times}
+    print(response)
+    
+    return jsonify(response)
+
+
+#--------------------------------------------#
+#/api/percentage/cryptovision/<name>/<period>#
+#--------------------------------------------#
+@app.route('/api/percentage/cryptovision/<name>/<period>', methods=['GET'])
+def api_cryptovision_percentage(name, period):
+    period = int(period)
+    cryptocurrencies = getCryptocurrencies(name, period)
+    values = []
+    times = []
+    for cryptocurrency in cryptocurrencies:
+        values.append(cryptocurrency[9])
+        times.append(cryptocurrency[11])
+    
+    values = values[::-1]
+    times = times[::-1]
+        
     response = {"name": cryptocurrency[0], "values": values, "times": times}
     print(response)
     

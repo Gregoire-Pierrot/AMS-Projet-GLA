@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const cryptoName = document.getElementById('crypto-name').textContent; // Change le nom selon l'URL actuelle ou fais-le dynamique
-    const apiUrl = `/api/cryptovision/${cryptoName}`;
-    console.log(apiUrl);
-
+    const cryptoName = document.getElementById('crypto-name').textContent;
+    const selectElement = document.getElementById('chart-mode');
+    const optionPeriod = document.getElementById('period');
+    const apiBaseUrl = '/api';
     const ctx = document.getElementById('crypto-chart').getContext('2d');
     let currentChart;
 
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             data: {
                 labels: data.times,
                 datasets: [{
-                    label: `Prix de ${data.name}`,
+                    label: `Valeur de ${data.name}`,
                     data: data.values,
                     borderColor: 'rgb(75, 192, 192)',
                 }]
@@ -25,6 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     async function fetchData() {
+        const selectedMode = selectElement.value;
+        const period = optionPeriod.value;
+        const apiUrl = `${apiBaseUrl}/${selectedMode}/cryptovision/${cryptoName}/${period}`;
+
         try {
             const response = await fetch(apiUrl);
             const data = await response.json();
@@ -41,6 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     fetchData();
+
+    selectElement.addEventListener('change', fetchData);
+    optionPeriod.addEventListener('change', fetchData);
 
     setInterval(fetchData, 20000);
 });
