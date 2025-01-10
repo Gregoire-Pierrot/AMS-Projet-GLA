@@ -31,5 +31,18 @@ jobs:
       - name: Set up and run tests
         run: |
           cd console-app
-          mvn clean install
+          mvn clean package install
           mvn test
+
+      # Étape 5 : Générer le rapport Jacoco et l'upload sur Codecov
+      - name: Generate JaCoCo report
+        run: |
+          cd console-app
+          mvn dependency:purge-local-repository clean install
+          mvn clean test jacoco:report
+      
+      # Étape 6 : Upload sur CodeCov
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}

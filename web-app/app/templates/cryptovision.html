@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block body %}
+    <div class="graph">
+        <h1><a href="{{url_for('homepage')}}">CryptoVision</a></h1>
+    
+        <main>
+            <h2><span id="crypto-name">{{ cryptoname }}</span></h2>
+            <div>
+                <select id="chart-mode">
+                    <option value="values" selected>Valeurs</option>
+                    <option value="percentage">Pourcentages de variation</option>
+                </select>
+                <select id="period">
+                    <option value="1">2 heure</option>
+                    <option value="24">1 jour</option>
+                    <option value="72">3 jours</option>
+                    <option value="168">1 semaine</option>
+                    <option value="720">1 mois</option>
+                    <option value="8760">1 an</option>
+                </select>
+            </div>
+            <canvas id="crypto-chart" width="1400" height="600"></canvas>
+        </main>
+    </div>
+{% endblock%}
+
+{% block script %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/script_cryptovision.js') }}"></script>
+{% endblock%}

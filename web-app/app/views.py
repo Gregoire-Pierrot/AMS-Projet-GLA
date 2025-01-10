@@ -106,6 +106,18 @@ def cryptohome():
         username = session['username']
     return render_template('cryptohome.html', username=username)
 
+
+#-------------------------------#
+#	    /cryptovision/<name>   	#
+#-------------------------------#
+@app.route('/cryptovision/<name>', methods=['GET'])
+def cryptovision(name):
+    username = None
+    if 'username' in session:
+        username = session['username']
+    return render_template('cryptovision.html', cryptoname=name, username=username)
+
+
 #-------------------------------#
 #        /api/cryptohome        #
 #-------------------------------#
@@ -119,4 +131,46 @@ def api_cryptohome():
     response = {
         "values": cryptocurrencies_last_value
     }
+    return jsonify(response)
+
+#----------------------------------------#
+#/api/values/cryptovision/<name>/<period>#
+#----------------------------------------#
+@app.route('/api/values/cryptovision/<name>/<period>', methods=['GET'])
+def api_cryptovision(name, period):
+    period = int(period)
+    cryptocurrencies = getCryptocurrencies(name, period)
+    values = []
+    times = []
+    for cryptocurrency in cryptocurrencies:
+        values.append(cryptocurrency[8])
+        times.append(cryptocurrency[11])
+        
+    values = values[::-1]
+    times = times[::-1]
+    
+    response = {"name": cryptocurrency[0], "values": values, "times": times}
+    print(response)
+    
+    return jsonify(response)
+
+
+#--------------------------------------------#
+#/api/percentage/cryptovision/<name>/<period>#
+#--------------------------------------------#
+@app.route('/api/percentage/cryptovision/<name>/<period>', methods=['GET'])
+def api_cryptovision_percentage(name, period):
+    period = int(period)
+    cryptocurrencies = getCryptocurrencies(name, period)
+    values = []
+    times = []
+    for cryptocurrency in cryptocurrencies:
+        values.append(cryptocurrency[9])
+        times.append(cryptocurrency[11])
+    
+    values = values[::-1]
+    times = times[::-1]
+        
+    response = {"name": cryptocurrency[0], "values": values, "times": times}
+    
     return jsonify(response)
