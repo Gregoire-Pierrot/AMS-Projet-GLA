@@ -37,6 +37,7 @@ jobs:
       # Étape 5 : Générer le rapport Jacoco
       - name: Generate JaCoCo report
         run: |
+          cd console-app
           mvn dependency:purge-local-repository clean install
           mvn clean test jacoco:report
       
