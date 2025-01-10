@@ -15,15 +15,11 @@ datas_path = 'database/datas.db'
 def getPeriod(cryptocurrencies, period):
     now = datetime.now()
     start_time = now - timedelta(days=period)
-    start_time_str = start_time.strftime("%d-%m-%Y %H:%M:%S")
-    
-    print(start_time_str)
     
     cryptocurrencies_on_period = []
     for cryptocurrency in cryptocurrencies:
         try:
             crypto_time = datetime.strptime(cryptocurrency[11], "%d-%m-%Y %H:%M:%S")
-            print("Comparing:", crypto_time, "with", start_time)
             
             if crypto_time >= start_time:
                 cryptocurrencies_on_period.append(cryptocurrency)

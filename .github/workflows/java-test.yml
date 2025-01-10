@@ -33,3 +33,13 @@ jobs:
           cd console-app
           mvn clean install
           mvn test
+
+      # Étape 5 : Générer le rapport Jacoco
+      - name: Generate JaCoCo report
+        run: mvn clean verify jacoco:report
+      
+      # Étape 6 : Upload sur CodeCov
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}

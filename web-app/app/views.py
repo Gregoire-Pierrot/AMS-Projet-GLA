@@ -106,6 +106,18 @@ def cryptohome():
         username = session['username']
     return render_template('cryptohome.html', username=username)
 
+
+#-------------------------------#
+#	    /cryptovision/<name>   	#
+#-------------------------------#
+@app.route('/cryptovision/<name>', methods=['GET'])
+def cryptovision(name):
+    username = None
+    if 'username' in session:
+        username = session['username']
+    return render_template('cryptovision.html', cryptoname=name, username=username)
+
+
 #-------------------------------#
 #        /api/cryptohome        #
 #-------------------------------#
@@ -119,4 +131,22 @@ def api_cryptohome():
     response = {
         "values": cryptocurrencies_last_value
     }
+    return jsonify(response)
+
+#-------------------------------#
+#   /api/cryptovision/<name>    #
+#-------------------------------#
+@app.route('/api/cryptovision/<name>', methods=['GET'])
+def api_cryptovision(name):
+    cryptocurrencies = getCryptocurrencies(name, 1)
+    values = []
+    times = []
+    for cryptocurrency in cryptocurrencies:
+        values.append(cryptocurrency[8])
+        times.append(cryptocurrency[11])
+    
+    print(cryptocurrency[0])
+    response = {"name": cryptocurrency[0], "values": values, "times": times}
+    print(response)
+    
     return jsonify(response)

@@ -41,6 +41,11 @@ header {
     padding: 0 20px 0 70px;
 }
 
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
 .nav a {
     position: relative;
     overflow: hidden;

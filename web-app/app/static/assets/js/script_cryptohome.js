@@ -20,7 +20,7 @@ function updateCryptoTable(cryptos) {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>${crypto[0]}</td>
-            <td>${crypto[1]}</td>
+            <td><a href="/cryptovision/${crypto[1]}">${crypto[1]}</a></td>
             <td>${crypto[2]}</td>
             <td>${crypto[3]}</td>
             <td>${crypto[4]}</td>
