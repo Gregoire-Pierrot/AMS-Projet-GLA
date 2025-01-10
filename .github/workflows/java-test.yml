@@ -36,7 +36,9 @@ jobs:
 
       # Étape 5 : Générer le rapport Jacoco
       - name: Generate JaCoCo report
-        run: mvn jacoco:report
+        run: |
+          mvn dependency:purge-local-repository clean install
+          mvn clean test jacoco:report
       
       # Étape 6 : Upload sur CodeCov
       - name: Upload coverage reports to Codecov
