@@ -8,4 +8,4 @@ jobs:
 
     steps:
       - name: Generate images
-        run: ls
+        run: docker compose up --build
