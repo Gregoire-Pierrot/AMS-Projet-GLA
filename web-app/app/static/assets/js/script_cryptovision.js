@@ -6,6 +6,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctx = document.getElementById('crypto-chart').getContext('2d');
     let currentChart;
 
+    function makeAverage(values) {
+        let average = 0;
+        let averages = [];
+        for (let i = 0; i < values.length; i++) {
+            average += values[i];
+            averages.push(average / (i + 1));
+        }
+        return averages;
+    }
+
     function updateChart(data) {
         if (currentChart) {
             currentChart.destroy();
@@ -19,6 +29,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     label: `Valeur de ${data.name}`,
                     data: data.values,
                     borderColor: 'rgb(75, 192, 192)',
+                },
+                {
+                    label: 'Valeur moyenne',
+                    data: makeAverage(data.values),
+                    borderColor: 'rgb(255, 99, 132)',
                 }]
             }
         });

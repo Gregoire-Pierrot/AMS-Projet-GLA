@@ -172,6 +172,5 @@ def api_cryptovision_percentage(name, period):
     times = times[::-1]
         
     response = {"name": cryptocurrency[0], "values": values, "times": times}
-    print(response)
     
     return jsonify(response)
