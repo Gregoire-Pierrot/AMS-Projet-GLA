@@ -8,4 +8,4 @@ jobs:
 
     steps:
       - name: Generate images
-        run: ./start.sh
+        run: ls
