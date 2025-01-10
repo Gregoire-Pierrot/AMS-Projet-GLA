@@ -11,15 +11,20 @@
     <body>
        <header>
             <h1 class="title"><a href="{{url_for('homepage')}}">CryptoVision</a></h1>
-            <nav class="navigation">
-                {% if username %}
-                    <a id="conn" href="{{url_for('account')}}">{{username}}</a>
-                    <a id="reg" href="/logout">Se déconecter</a>
-                {% else %}
-                    <a id="conn" href="/login">Connexion</a>
-                    <a id="reg" href="/register">S'inscrire</a>
-                {% endif %}
-            </nav>
+            <div class="nav">
+                <nav class="navigation" id="navigation-left">
+                    <a href="{{url_for('cryptohome')}}">CryptoHome</a>
+                </nav>
+                <nav class="navigation" id="navigation-right">
+                    {% if username %}
+                        <a id="conn" href="{{url_for('account')}}">{{username}}</a>
+                        <a id="reg" href="/logout">Se déconecter</a>
+                    {% else %}
+                        <a id="conn" href="/login">Connexion</a>
+                        <a id="reg" href="/register">S'inscrire</a>
+                    {% endif %}
+                </nav>
+            </div>
        </header>
 
        <div class="extends">

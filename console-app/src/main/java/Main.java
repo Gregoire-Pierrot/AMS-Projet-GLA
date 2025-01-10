@@ -63,8 +63,9 @@ public class Main {
                     Instant end = Instant.now();
                     long duration = Duration.between(start, end).toMillis();
                 
-                    if (duration < 1000) {
-                        Thread.sleep(1000 - duration);
+                    int min_time = 20000; 
+                    if (duration < min_time) {
+                        Thread.sleep(min_time - duration);
                     }
                 } catch (SQLException | InterruptedException e) {
                     e.printStackTrace();
@@ -90,8 +91,9 @@ public class Main {
                     Instant end = Instant.now();
                     long duration = Duration.between(start, end).toMillis();
                 
-                    if (duration < 10000) {
-                        Thread.sleep(10000 - duration);
+                    int min_time = 60000;
+                    if (duration < min_time) {
+                        Thread.sleep(min_time - duration);
                     }
                 } catch (SQLException | InterruptedException e) {
                     e.printStackTrace();

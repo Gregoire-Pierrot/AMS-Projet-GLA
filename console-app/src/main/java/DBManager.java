@@ -36,7 +36,7 @@ public class DBManager {
     private DBManager() throws SQLException { initConnection(); }
 
     private void initConnection() throws SQLException {
-        String url = "jdbc:sqlite:datab.db";
+        String url = DBInitializer.url;
 
         this.conn = DriverManager.getConnection(url);
         if (conn != null) {

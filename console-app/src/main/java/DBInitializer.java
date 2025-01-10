@@ -11,6 +11,7 @@ import java.sql.Statement;
 public class DBInitializer {
     /** Singleton **/
     private static DBInitializer instance;
+    public static final String url = "jdbc:sqlite:database/datas.db";
     
     /** Constructor **/
     private DBInitializer(){
@@ -44,8 +45,6 @@ public class DBInitializer {
      * Logs a message indicating whether the connection was successful or failed.
      */
     void createBD(){
-        String url = "jdbc:sqlite:datab.db";
-
         // Créer une connexion à la base de données
         try (Connection conn = DriverManager.getConnection(url)) {
             if (conn != null) {

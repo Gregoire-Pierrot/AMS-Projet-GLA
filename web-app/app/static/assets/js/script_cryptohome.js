@@ -30,6 +30,6 @@ function updateCryptoTable(cryptos) {
     });
 }
 
-setInterval(fetchCryptoData, 5000);
+setInterval(fetchCryptoData, 20000);
 
 fetchCryptoData();

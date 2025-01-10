@@ -1,6 +1,17 @@
 version: '3.8'
 
 services:
+  console-app:
+      build:
+        context: .
+        dockerfile: ./console-app/Dockerfile
+      container_name: console-app
+      volumes:
+        - ./console-app:/app
+        - shared-db:/app/database
+      networks:
+        - app-network
+
   flask:
     build:
       context: .
@@ -8,7 +19,7 @@ services:
     container_name: flask_app
     volumes:
       - ./web-app/app:/app
-      - shared_data:/app/databases
+      - shared-db:/app/database
     ports:
       - "5000:5000"
     networks:
@@ -28,19 +39,8 @@ services:
     depends_on:
       - flask
 
-  console-app:
-      build:
-        context: .
-        dockerfile: ./console-app/Dockerfile
-      container_name: console-app
-      volumes:
-        - ./console-app:/app
-        - shared_data:/app/databases
-      networks:
-        - app-network
-
 volumes:
-  shared_data:
+  shared-db:
     driver: local
 
 networks:

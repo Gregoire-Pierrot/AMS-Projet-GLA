@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 #------------------------------------------------#
 
 
-datas_path = 'datas.db'
+datas_path = 'database/datas.db'
 
 #-------------------------------#
 #		    getPeriod      		#
