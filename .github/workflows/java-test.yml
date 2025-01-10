@@ -31,7 +31,7 @@ jobs:
       - name: Set up and run tests
         run: |
           cd console-app
-          mvn clean install
+          mvn clean package install
           mvn test
 
       # Étape 5 : Générer le rapport Jacoco
