@@ -1,7 +1,7 @@
 FROM python:3.9-slim
 WORKDIR /app
-COPY app/ /app
-COPY requirements.txt /app/
+COPY web-app/app/ /app
+COPY web-app/requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 5000
 CMD ["python3", "main.py"]
