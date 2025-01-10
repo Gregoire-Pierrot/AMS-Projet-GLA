@@ -27,7 +27,7 @@ Kubernetes sera utilisée pour déployer l'application de manière efficace et s
 
 ### Console-App
 - ![Java CI with Maven](https://github.com/Gregoire-Pierrot/AMS-Projet-GLA/actions/workflows/java-test.yml/badge.svg)
-- [![codecov](https://codecov.io/gh/Gregoire-Pierrot/AMS-Projet-GLA/graph/badge.svg?token=KBY7SUO60T)](https://codecov.io/gh/Gregoire-Pierrot/AMS-Projet-GLA)
+- [![codecov](https://codecov.io/gh/Gregoire-Pierrot/AMS-Projet-GLA/graph/badge.svg?token=YQXJBEZXOH)](https://codecov.io/gh/Gregoire-Pierrot/AMS-Projet-GLA)
 
 ### Web-App
 
