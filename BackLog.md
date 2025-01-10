@@ -22,7 +22,7 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
     | Création du [BackLog](BackLog.md)                             | 18 novembre 2024  | 18 novembre 2024      | Fichier répertoriant toutes les tâches à réaliser                                             |    ✅     |
     | Ajout de [M.Rouvier](https://github.com/mrouvier) au GitHub   | 18 novembre 2024  | 18 novembre 2024      | Ajout du responsable d'UE au projet GitHub                                                    |    ✅     |
     | Réalisation du Backlogs de [Console-App](#console-app)        | 20 novembre 2024  | 23 novembre 2024      | Détaille des tâches à réaliser pour la partie [Console-App](Documentation.md/#console-app)    |    ✅     |
-    | Réalisation du Backlogs de [Web-App](#web-app)                | 20 novembre 2024  | --------------------- | Détaille des tâches à réaliser pour la partie [Web-App](Documentation.md/#web-app)            |    ❌     |
+    | Réalisation du Backlogs de [Web-App](#web-app)                | 20 novembre 2024  | --------------------- | Détaille des tâches à réaliser pour la partie [Web-App](Documentation.md/#web-app)            |    ✅     |
     | Réalisation de la [Documentation](Documention.md)             | 20 novembre 2024  | --------------------- | Création et rédaction de la [documentation](Documentation.md)                                 |    ❌     |
     | Dockerisation et déploiement des applications                 | 9 janvier 2025    | --------------------- | Dockerisation des application + déploiement avec Kubertnet                                    |    ❌     |
 
@@ -96,7 +96,7 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
         | Réalisation de la classe appelant l'API   | 20 novembre 2024  | 4 janvier 2025        | Classe [Main.java](src/main/java/Main.java) appelant l'API de manière périodique  |    ✅     |
 
 
-- ❌ **Tests [18/11/24 - --/--/--]:**
+- 🕐 **Tests [18/11/24 - --/--/--]:**
     
     | Tâches                                                                                                		| Date de création  | Date d'implémentation | Description            				    		                    | Réalisée  | 
     |:-------------------------------------------------------------------------------------------------------------:|:-----------------:|:---------------------:|:---------------------------------------------------------------------:|:---------:|
@@ -122,25 +122,25 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
 
 ## Web-App
 
-- ❌ **Initialisation du serveur flask [09/01/25 - --/--/--]**
+- ✅ **Initialisation du serveur flask [09/01/25 - 09/01/25]**
 
-    | Tâches                               | Date de création  | Date d'implémentation | Description                   | Réalisée  |
-    |:------------------------------------:|:-----------------:|:---------------------:|:-----------------------------:|:---------:|
-    | Création de l'environnement python   | 9 janvier 2025    | --------------------- | Création de l'environnement   |    ❌     |
-    | Création du serveur flask            | 9 janvier 2025    | --------------------- | Création du serveur           |    ❌     |
+    | Tâches                                | Date de création  | Date d'implémentation | Description                   | Réalisée  |
+    |:-------------------------------------:|:-----------------:|:---------------------:|:-----------------------------:|:---------:|
+    | Création de l'environnement python    | 9 janvier 2025    | 9 janvier 2025        | Création de l'environnement   |    ✅     |
+    | Création du serveur flask             | 9 janvier 2025    | 9 janvier 2025        | Création du serveur           |    ✅     |
 
-- ❌ **Création de la base de données utilisateur [09/01/25 - --/--/--]**
+- ✅ **Création de la base de données utilisateur [09/01/25 - 09/01/25]**
 
     | Tâches                                    | Date de création  | Date d'implémentation | Description                       | Réalisée      |
     |:-----------------------------------------:|:-----------------:|:---------------------:|:---------------------------------:|:-------------:|
-    | Création de la base de donée utilisateur  | 9 janvier 2025    | --------------------- | Création de la base de données    |       ❌      |
+    | Création de la base de donée utilisateur  | 9 janvier 2025    | 9 janvier 2025        | Création de la base de données    |       ✅      |
 
-- ❌ **Ajout des différentes pages du site [09/01/25 - --/--/--]**
+- 🕐 **Ajout des différentes pages du site [09/01/25 - --/--/--]**
 
     | Tâches                                                                    | Date de création  | Date d'implémentation | Description                                                                                                                                                                           | Réalisée      |
     |:-------------------------------------------------------------------------:|:-----------------:|:---------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------:|
-    | Création de la page de garde                                              | 9 janvier 2025    | --------------------- | Réalisation de la page de garde (/) du site                                                                                                                                           |       ❌      |
-    | Création des page d'enregistrement et de connexion                        | 9 janvier 2025    | --------------------- | Réalisation des pages de connexion et d'enregistrement des utilisateurs                                                                                                               |       ❌      |
-    | Création de la page de modification d'information utilisateur             | 9 janvier 2025    | --------------------- | Réalisation de la page de modifiaction des données utilisateurs                                                                                                                       |       ❌      |
+    | Création de la page de garde                                              | 9 janvier 2025    | 9 janvier 2025        | Réalisation de la page de garde (/) du site                                                                                                                                           |       ✅      |
+    | Création des page d'enregistrement et de connexion                        | 9 janvier 2025    | 9 janvier 2025        | Réalisation des pages de connexion et d'enregistrement des utilisateurs                                                                                                               |       ✅      |
+    | Création de la page de modification d'information utilisateur             | 9 janvier 2025    | 9 janvier 2025        | Réalisation de la page de modifiaction des données utilisateurs                                                                                                                       |       ✅      |
     | Création de la page de visualisation des cryptomonnaies                   | 9 janvier 2025    | --------------------- | Réalisation des pages de visualisation des cryptommonaies sous forme de courbe de prix, graphique en chandelier et heatmap. Elle comportera aussi un algorithme de prévision de prix  |       ❌      |
     | Création de la page d'ajout d'alertes                                     | 9 janvier 2025    | --------------------- | Réalisation de la page de création d'alerte de prix ou de variation de pourcentage                                                                                                    |       ❌      |

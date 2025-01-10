@@ -1,0 +1,73 @@
+{% extends "index.html" %}
+
+{% block body %}
+<div class="account-container">
+    <h2>Mon Compte</h2>
+    <form id="account-form" novalidate method="POST" action="{{url_for('account')}}">
+        {{ form.csrf_token }}
+        <div class="info-item">
+            <div id="Part1">
+                <label for="email">Email :</label>
+                <span>{{ email }}</span>
+            </div>
+            <div id="Part2">
+                {{ form.email(class_="form-control", id="email") }}
+                {% if form.email.errors %}
+                    <p>{{ form.email.errors[0] }}</p>
+                {% endif %}
+                {% if email_t %}
+                    <p>* Cet email est déjà pris *</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="info-item">
+            <div id="Part1">
+                <label for="username">Nom d'utilisateur :</label>
+                <span>{{ username }}</span>
+            </div>
+            <div id="Part2">
+                {{ form.username(class_="form-control", id="username") }}
+                {% if form.username.errors %}
+                    <p>{{ form.username.errors[0] }}</p>
+                {% endif %}
+                {% if username_t %}
+                    <p>* Ce nom d'utilisateur est déjà pris *</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="info-item">
+            <div id="Part1">
+                <label for="firstName">Prénom :</label>
+                <span>{{ firstname }}</span>
+            </div>
+            <div id="Part2">
+                {{ form.firstname(class_="form-control", id="firstname") }}
+                {% if form.firstname.errors %}
+                    <p>{{ form.firstname.errors[0] }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="info-item">
+            <div id="Part1">
+                <label for="lastName">Nom :</label>
+                <span>{{ lastname }}</span>
+            </div>
+            <div id="Part2">
+                {{ form.lastname(class_="form-control", id="lastname") }}
+                {% if form.lastname.errors %}
+                    <p>{{ form.lastname.errors[0] }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <button type="button" class="edit-btn" id="edit-btn" onclick="toggleEdit()">Modifier</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/style_account.css')}}">
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='assets/js/script_account.js') }}"></script>
+{% endblock %}

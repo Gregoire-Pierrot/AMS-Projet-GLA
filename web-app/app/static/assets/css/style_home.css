@@ -1,0 +1,52 @@
+.home_text{
+    margin: 70px;
+    font-size: 24px;
+}
+
+.home_text p{
+    font-size: 18px;
+}
+
+.home_text span{
+    color: #007BFF;
+}
+
+.home_text ul{
+    list-style-type: none;
+    padding: 0;
+    font-size: 16px;
+}
+
+.Part2 p{
+    margin-top: 20px;
+}
+
+.welcome{
+    color: #007bff;
+    font-size: 36px;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+#register{
+    text-decoration: none;
+    color: white;
+    background-color: #007BFF;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 5px;
+    display: inline-block;
+}
+
+#connexion{
+    text-decoration: none;
+    color: white;
+    background-color: #28a745;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin: 5px;
+    display: inline-block;
+}

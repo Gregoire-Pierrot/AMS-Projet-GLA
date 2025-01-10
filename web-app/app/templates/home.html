@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% block body %}
+    <div class="home_text">
+        <div class="Part1">
+            <h1>Bienvenue sur <span>CryptoVision</span></h1>    
+            <p>
+                Votre plateforme de référence pour suivre et anticiper les fluctuations du marché des cryptomonnaies.
+            </p>
+        </div>
+        
+        <h2>Que proposons-nous ?</h2>
+        <ul>
+            <li><strong>Suivi simplifié :</strong> Visualisez les données clés des cryptomonnaies grâce à des graphiques interactifs.</li>
+            <li><strong>Alertes personnalisées :</strong> Configurez des notifications pour rester informé des variations de prix ou de pourcentage.</li>
+            <li><strong>Prévisions basiques :</strong> Accédez à des estimations pour anticiper les tendances du marché.</li>
+            <li><strong>Compte utilisateur sécurisé :</strong> Créez un compte pour gérer vos préférences et alertes en toute simplicité.</li>
+        </ul>
+
+        <div class="Part2">
+            <p>
+                Prenez une longueur d’avance sur le marché en un clin d’œil.
+            </p>
+        </div>
+        
+        <p>
+            <a href="/register" id="register">Inscrivez-vous</a>
+            <a href="/login" id="connexion">Connectez-vous</a>
+        </p>
+    </div>
+{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{url_for('static', filename='assets/css/style_home.css')}}">
+{% endblock %}

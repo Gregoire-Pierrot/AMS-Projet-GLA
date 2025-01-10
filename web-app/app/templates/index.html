@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CryptoVision</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='assets/css/style.css')}}">
+        {% block style %}
+        {% endblock %}
+    </head>
+    <body>
+       <header>
+            <h1 class="title"><a href="{{url_for('homepage')}}">CryptoVision</a></h1>
+            <nav class="navigation">
+                {% if username %}
+                    <a id="conn" href="{{url_for('account')}}">{{username}}</a>
+                    <a id="reg" href="/logout">Se déconecter</a>
+                {% else %}
+                    <a id="conn" href="/login">Connexion</a>
+                    <a id="reg" href="/register">S'inscrire</a>
+                {% endif %}
+            </nav>
+       </header>
+
+       <div class="extends">
+            {% block body %}
+            {% endblock %}
+
+            {% block script %}
+            {% endblock %}
+       </div>
+    </body>
+</html>
