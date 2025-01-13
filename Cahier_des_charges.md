@@ -32,9 +32,11 @@ Le projet répond à une demande croissante pour des outils permettant une meill
 - **Python/Flask** : pour le serveur web et la présentation des données.
 - **SQLite** : pour créer et enregistrer les données de l'API : CoinCap API dans une base de données.
 - **Docker & Kubernetes** : pour le déploiement scalable.  
-- **GitHub Actions** : pour l’automatisation des tests.  
-- **SonarQube** : pour l’évaluation de la qualité du code.  
-- **Codecov** : pour suivre la couverture des tests.
+- **GitHub Actions** : pour l’automatisation des tests.
+- **Codecov** : pour suivre la qualité et la couverture des tests.
+- **Locust** : pour les tests de performance.
+- **GitHub Pages** : pour la visibilité de la documentation.
+- **Snyk** : pour la sécurité des versions utilisées.
 
 ---
 
@@ -115,10 +117,9 @@ Le projet répond à une demande croissante pour des outils permettant une meill
 
 ### **8. Équipe du Projet**
 
-- **Grégoire** : Développeur et chef de projet (responsable de l’ensemble des tâches).  
+- **Grégoire Pierrot** : Développeur et chef de projet (responsable de l’ensemble des tâches).  
 
 ---
 
 ### **9. Annexes**  
-- [Documentation des APIs publiques utilisées].  
-- [Modèles de tests pour les tests utilisateurs].  
+- Lien vers la [documentation](Documentation.md).  

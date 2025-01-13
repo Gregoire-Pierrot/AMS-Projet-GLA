@@ -38,22 +38,21 @@ Pour assurer un suivi précis, chaque tâche sera accompagnée d'une case permet
     | Ajout des dépendances dans le fichier [pom.xml](console-app/pom.xml)  | 20 novembre 2024  |  6 décembre 2024      | json, sqlite-jdbc, JUnit 5.11.3, Maven 17, Mockito 5.14.2, Jacoco 0.8.12  |    ✅     |
 
 
-- 🕐 **Choix de l'écosystème [20/11/24 - --/--/--]:**
+- ✅ **Choix de l'écosystème [20/11/24 - 20/11/24]:**
 
     | Tâches                                                                            | Date de création  | Date d'implémentation | Description                               | Réalisée  | 
     |:---------------------------------------------------------------------------------:|:-----------------:|:---------------------:|:-----------------------------------------:|:---------:|
     | Choisir les données à enregistrer dans la base de donée                           | 20 novembre 2024  | 20 novembre 2024      | Choix des données à stocker               |    ✅     |
     | Choisir l'API à utilisé                                                           | 20 novembre 2024  | 20 novembre 2024      | API utilisé pour la récolte des données   |    ✅     |
-    | Rédiger les choix d'API et de librairie dans la [documentation](Documentation.md) | 20 novembre 2024  | --------------------- | Justification des choix fait              |    ❌     |
 
 
-- 🕐 **Architecture et implémentation du code [20/11/24 - --/--/--]:**
+- ✅ **Architecture et implémentation du code [20/11/24 - 13/01/25]:**
 
     | Tâches                                                                            | Date de création  | Date d'implémentation | Description                                                                                       | Réalisée  | 
     |:---------------------------------------------------------------------------------:|:-----------------:|:---------------------:|:-------------------------------------------------------------------------------------------------:|:---------:|
     | Différentiation des fonctionnalitées à implémenter                                | 20 novembre 2024  | 20 novembre 2024      | Répartition en groupes des différentes parties du code                                            |    ✅     |
     | Réalisation des classes                                                           | 20 novembre 2024  | 6 janvier 2025        | Implémentation du code de l'application [Cosole-App](Documentation.md/#console-app)               |    ✅     |
-    | Rédiger la documentation du programme dans la [documentation](Documentation.md)   | 20 novembre 2024  | --------------------- | Documentation du programme dans la [documentation](Documentation.md)                              |    ❌     |
+    | Rédiger la documentation du programme dans la [documentation](Documentation.md)   | 20 novembre 2024  | 13 janvier 2025       | Documentation du programme dans la [documentation](Documentation.md)                              |    ✅     |
 
     - ✅ **Classes de cryptomonnaies [20/11/24 - 06/01/25]:**
 
